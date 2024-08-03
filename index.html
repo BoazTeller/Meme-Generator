@@ -1,20 +1,17 @@
 <!DOCTYPE html>
-
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/main.css">
     <title>MemeMania</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel="icon" type="image/x-icon" href="/images/favicon-32x32.png">
 </head>
 
 <body onload="onInit()" class="main-layout">
 
-    <div class="header-container">
+    <header class="main-header-container">
         <div class="spacer"></div>
         <header class="main-header">
             <div class="logo">MemeMania<span>©</span></div>
@@ -33,7 +30,7 @@
             </nav>
         </header>
         <div class="spacer"></div>
-    </div>
+    </header>
 
     <div class="meme-gallery-container">
         <section class="meme-gallery">
@@ -48,8 +45,6 @@
         </div>
     </footer>
 
-  
-
     <script src="js/services/util-service.js"></script>
     <script src="js/services/storage-service.js"></script>
     <script src="js/main.js"></script>
@@ -57,6 +52,7 @@
     <script src="js/services/gallery-service.js"></script>
     <script src="js/controllers/gallery-controller.js"></script>
     <script src="js/controllers/meme-controller.js"></script>
+    
 </body>
 
 </html>

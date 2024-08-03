@@ -1,0 +1,72 @@
+.meme-gallery {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-flow: row;
+    gap: 1.875em;
+    overflow-y: auto;
+    height: calc(100vh - 73px - 2em);
+    z-index: 1;
+
+  
+    border-radius: 10px;
+    background-color: #383b42;
+
+    /* margin-top: ; */
+    /* margin-inline: 1em; */
+    margin-block-end: 20px;
+    padding: 1.3em;
+    max-width: 1243px;
+}
+
+.meme-gallery img {
+    z-index: 1;
+
+    height: 100%;
+    object-fit: cover;
+    
+    align-self: center;
+    justify-self: center;
+
+    border-radius: 10px;
+    filter: drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.5));
+    cursor: pointer;
+
+    /* max-width: 200px; */
+    /* min-height: 173px;  */
+    /* filter: drop-shadow(0px 5px 3px rgba(0,0,0,0.34));/ */
+    /* box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.2); */
+}
+
+.meme-gallery::-webkit-scrollbar {
+    width: 10px;
+}
+
+.meme-gallery::-webkit-scrollbar-track {
+    margin-top: 1.3em;
+    background-color: black;
+    border-radius: 6px;
+    border-inline: 1px solid #383b42;
+    cursor: grab;
+}
+
+.meme-gallery::-webkit-scrollbar-thumb{
+    border-top: 200px solid  #1fa993;
+    border-radius:  6px;
+}
+/* 
+.meme-gallery::-webkit-scrollbar {
+    width: 0.8125em;
+}
+
+.meme-gallery::-webkit-scrollbar-track {
+    margin-top: 1.3em;
+    background-color: black;
+    border-radius: 6px;
+    border-inline: 2px solid #383b42;
+}
+
+.meme-gallery::-webkit-scrollbar-thumb {
+    background: linear-gradient(-86deg, #33bd6d 0%, #0b97b9 100%);
+    border-radius: 6px;
+} */

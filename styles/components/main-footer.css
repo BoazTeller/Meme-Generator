@@ -1,0 +1,33 @@
+.main-footer {
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    background-color: #383b42;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+
+    grid-column: 1 / -1;
+}
+
+.main-footer .footer-content {
+    display: flex;
+    align-items: center;
+}
+
+.main-footer img {
+    height: 40px;
+    width: 40px;
+    margin-inline-end: 10px; 
+}
+
+.main-footer p {
+    margin: 0; /* Remove default margin */
+    padding: 0;
+}
+
+.main-footer .logo {
+    margin: 0;
+    padding: 0;
+}

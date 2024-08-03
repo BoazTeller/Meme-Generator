@@ -1,0 +1,10 @@
+.logo {
+    font-family: "poppins-med";
+    font-size: 1.375em;
+    color: #ffffff;
+}
+
+.logo span {
+    color: #58C93A;
+    font-size: 0.6em;
+}

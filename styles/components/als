@@ -1,0 +1,49 @@
+.meme-gallery::-webkit-scrollbar {
+    width: 10px;
+}
+
+.meme-gallery::-webkit-scrollbar-track {
+    /* -webkit-box-shadow: inset 0 0 6px black ; */
+    border-radius: 6px;
+    background-color: black;
+
+    border-inline: 1px solid #383b42;
+}
+
+.meme-gallery::-webkit-scrollbar-thumb {
+    /* background-image: linear-gradient(-86deg, #33bd6d 0%, #0b97b9 100%); */
+    background-clip: content-box;   
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: transparent;
+    border-top: 200px solid  #1fa993;
+    border-radius: 6px;
+}
+
+
+.meme-gallery::-webkit-scrollbar {
+    width: 10px;
+}
+
+.meme-gallery::-webkit-scrollbar-track {
+    /* -webkit-box-shadow: inset 0 0 6px black ; */
+    border-radius: 6px;
+    background-color: black;
+
+    border-inline: 1px solid #383b42;
+}
+
+.meme-gallery::-webkit-scrollbar-thumb {
+}
+
+.meme-gallery::-webkit-scrollbar-thumb{
+    /* background-image: linear-gradient(-86deg, #33bd6d 0%, #0b97b9 100%); */
+    /* background-color: transparent; */
+    /* background-color: red; */
+    
+    border-top: 200px solid  #1fa993;
+    border-radius: 6px;
+    background-clip: content-box;
+
+}

@@ -1,13 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
 
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meme Generator</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <title>MemeMania</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
 </head>
 
-<body>
-    
+<body onload="onInit()" class="main-layout">
+
+    <div class="header-container">
+        <div class="spacer"></div>
+        <header class="main-header">
+            <!-- <div class="main-header-container flex space-between align-center"> -->
+                <div class="logo">MemeMania<span>©</span></div>
+                <nav class="main-nav-container">
+                    <ul class="main-nav clean-list">
+                        <li>
+                            <a class="active" onclick="onUpdateActiveNav(this)" href="#">Gallery</a>
+                        </li>
+                        <li>
+                            <a onclick="onUpdateActiveNav(this)" href="#">Saved</a>
+                        </li>
+                        <li>
+                            <a onclick="onUpdateActiveNav(this)" href="#">Randomize</a>
+                        </li>
+                    </ul>
+                </nav>
+        </header>
+        <div class="spacer"></div>
+    </div>
+
+    <main class="main-content">
+        <section class="meme-gallery">
+            <div class="meme-gallery-inner">
+        </section>
+
+        <section class="editor-container hidden">
+            <div class="canvas-container">
+                <canvas class="main-canvas" width="500" height="500"></canvas>
+            </div>
+
+            <div class="editor-controls">
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="main-footer full">
+        <div class="logo">MemeMania<span>©</span></div>
+        <div class="footer-content">
+            <img src="images/pepe.svg" alt="">
+            <p>All your meme are belong to us.</p>
+        </div>
+    </footer>
+
+    <script src="js/services/util-service.js"></script>
+    <script src="js/services/storage-service.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/services/meme-service.js"></script>
+    <script src="js/services/gallery-service.js"></script>
+    <script src="js/controllers/gallery-controller.js"></script>
+    <script src="js/controllers/meme-controller.js"></script>
 </body>
+
 </html>

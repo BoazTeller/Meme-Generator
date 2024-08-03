@@ -33,10 +33,6 @@ a {
 
 h1,
 h2,
-h3,
-h4,
-h5,
-h6,
 p {
     margin: 0;
     padding: 0;
@@ -48,18 +44,18 @@ button {
 }
 
 body::-webkit-scrollbar {
-  width: 10px;
+  width: 0.625em;
 }
 
 body::-webkit-scrollbar-track {
   margin-top: 0.3em;
   background-color: black;
-  border-radius: 6px;
-  border-inline: 1px solid #22252c;
+  border-radius: 0.375em;
+  border-inline: 0.0625em solid #22252c;
 }
 
-body::-webkit-scrollbar-thumb{
-  border-top: 313px solid  #1fa993;
-  border-radius:  6px;
+body::-webkit-scrollbar-thumb {
+  border-top: 19.5625em solid  #1fa993;
+  border-radius:  0.375em;
   cursor: grab;
 }

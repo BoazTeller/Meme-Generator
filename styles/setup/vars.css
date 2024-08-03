@@ -1,16 +1,5 @@
 :root {
-    /* palette */
-    --primary-5: #000000;
-    --primary-4: #1D1D1D;
-    --primary-3: #1E1E1E; /* Darkest variation, used for toolbar box shadow */
-    --primary-2: #292929; /* Darker color for header background */
-    --primary-1: #4F4E4E; /* Card title color (darker variation) */
-    --primary-base: #606060; /* Base color, card text color */
-    --primary--1: #818181; /* Pagination buttons color (lighter variation) */
-    --primary--2: #C2C1C1; /* Continue reading button color (lightest color) */
-    --primary--3: #FFFFFF; /* Lightest color */
-  
-    --secondary-base: #58C93A; /* Used for hover color change and logo */   
+    /* palette */ 
   
     /* social media logo colors */
     --color-facebook: #1877F2;

@@ -2,7 +2,7 @@
     display: flex;
 }
 
-.flex.dir-column {
+.flex.column {
     flex-direction: column;
 }
 
@@ -20,10 +20,11 @@
     list-style-type: none;
 }
 
+.grid {
+    display: grid;
+}
+
 .hidden {
     display: none;
 }
 
-.grid {
-    display: grid;
-}

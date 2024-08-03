@@ -20,8 +20,9 @@
 .main-layout {
   display: grid;
   grid-template-columns: minmax(20px, 1fr) minmax(750px, 1257px) minmax(20px, 1fr);
-  grid-template-rows: auto 1fr auto;1
+  /* grid-template-rows: auto 1fr auto; */
   height: 100vh;
+  
     /* display: grid;
     grid-template-columns: 
       minmax(20px, 1fr) 

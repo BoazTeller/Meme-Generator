@@ -1,3 +1,8 @@
+.meme-gallery-container {
+    display: flex;
+    justify-content: center;
+}
+
 .meme-gallery {
     position: relative;
     display: grid;
@@ -8,7 +13,9 @@
     height: calc(100vh - 73px - 2em);
     z-index: 1;
 
-  
+    /* margin: auto; */
+    /* justify-self: center; */
+    
     border-radius: 10px;
     background-color: #383b42;
 

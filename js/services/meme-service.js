@@ -55,10 +55,14 @@ let gImgs = [
     { id: gImgId++, url: 'images/42.jpg', keywords: ['funny', 'politics'] },
 ]
 
-function _createMeme() {
-    gMeme = {
+function createMeme(imgId) {
+    gMeme = _createMeme(imgId)
+}
+
+function _createMeme(imgId) {
+    return {
         id: makeId(),
-        selectedImgId: 0,
+        selectedImgId: imgId,
         selectedLineIdx: 0,
         lines: [_createLine()]
     }
@@ -81,6 +85,10 @@ function getMeme() {
 
 function getImgs() {
     return gImgs
+}
+
+function getImdById(imgId) {
+    return gImgs.find(({ id }) => imgId === id)
 }
 
 function _createKeywordsMap() {

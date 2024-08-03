@@ -20,8 +20,41 @@ function onUpdateActiveNav(elLink) {
     elLink.classList.add('active')
 }
 
+function onImgSelect(imgId) {    
+    createMeme(imgId)  
 
+    hideGallery()
+    showEditor()
 
+    renderMeme()
+}
+
+function onShowGallery(elLink) {
+    if (elLink.classList.contains('active')) return
+
+    hideEditor()
+    showGallery()
+}
+
+function hideGallery() {
+    const elGallery = document.querySelector('.meme-gallery-container')
+    elGallery.classList.add('hidden')
+}
+
+function showGallery() {
+    const elGallery = document.querySelector('.meme-gallery-container')
+    elGallery.classList.remove('hidden')
+}
+
+function hideEditor() {
+    const elEditor = document.querySelector('.meme-editor-container')
+    elEditor.classList.add('hidden')
+}
+
+function showEditor() {
+    const elEditor = document.querySelector('.meme-editor-container')
+    elEditor.classList.remove('hidden')
+}
 
 
 

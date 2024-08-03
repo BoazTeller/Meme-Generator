@@ -12,7 +12,6 @@ html {
 }
   
 body {
-  margin: 1em 0 0 0;
   margin: 0;
   height: 100%;
 }
@@ -39,31 +38,14 @@ h4,
 h5,
 h6,
 p {
-    /* margin: 0;
-    padding: 0; */
+    margin: 0;
+    padding: 0;
 }
 
 button {
     background-color: inherit;
     cursor: pointer;
 }
-
-/* 
-body::-webkit-scrollbar {
-    width: 0.8125em;
-}
-
-body::-webkit-scrollbar-track {
-    margin-top: 1.3em;
-    background-color: black;
-    border-radius: 6px;
-    border-inline: 2px solid #383b42;
-}
-
-body::-webkit-scrollbar-thumb {
-    background: linear-gradient(-86deg, #33bd6d 0%, #0b97b9 100%);
-    border-radius: 6px;
-} */
 
 body::-webkit-scrollbar {
   width: 10px;

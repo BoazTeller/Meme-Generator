@@ -1,14 +1,13 @@
-.main-footer {
+.main-footer {    
     display: flex; 
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100px;
+    height: 6.25em;
+
     background-color: #383b42;
     border-top-left-radius: 1em;
     border-top-right-radius: 1em;
-
-    grid-column: 1 / -1;
 }
 
 .main-footer .footer-content {
@@ -17,17 +16,9 @@
 }
 
 .main-footer img {
-    height: 40px;
-    width: 40px;
-    margin-inline-end: 10px; 
+    height: 2.5em;
+    width: 2.5em;
+    margin-inline-end: 0.625em; 
 }
 
-.main-footer p {
-    margin: 0; /* Remove default margin */
-    padding: 0;
-}
 
-.main-footer .logo {
-    margin: 0;
-    padding: 0;
-}

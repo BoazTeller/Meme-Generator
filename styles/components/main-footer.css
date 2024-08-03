@@ -10,7 +10,7 @@
     border-top-right-radius: 1em;
 }
 
-.main-footer .footer-content {
+.main-footer .footer-content { 
     display: flex;
     align-items: center;
 }

@@ -9,8 +9,8 @@ let gElCanvas
 let gCtx
 
 function onInit() {
-    initCanvas()
-    resizeCanvas()
+    // initCanvas()
+    // resizeCanvas()
  
     renderGallery()
 }

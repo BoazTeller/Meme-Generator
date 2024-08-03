@@ -9,13 +9,13 @@
     grid-auto-flow: row;
     gap: 1.875em;
     
-    height: calc(100vh - 73px - 2em);
-    max-width: 1243px;
+    height: calc(100vh - 4.5625em - 2em);
+    max-width: 77.6875em;
     overflow-y: auto;
     
-    margin-block-end: 20px;
+    margin-block-end: 1.25em;
     padding: 1.3em;
-    border-radius: 10px;
+    border-radius: 0.625em;
     background-color: #383b42;
 }
 
@@ -26,24 +26,24 @@
     align-self: center;
     justify-self: center;
 
-    border-radius: 10px;
-    filter: drop-shadow(0px 8px 10px rgba(0, 0, 0, 0.5));
+    border-radius: 0.625em;
+    filter: drop-shadow(0em 0.5em 0.625em rgba(0, 0, 0, 0.5));
     cursor: pointer;
 }
 
 .meme-gallery::-webkit-scrollbar {
-    width: 10px;
+    width: 0.625em;
 }
 
 .meme-gallery::-webkit-scrollbar-track {
     margin-top: 1.3em;
     background-color: black;
-    border-radius: 6px;
-    border-inline: 1px solid #383b42;
+    border-radius: 0.375em;
+    border-inline: 0.0625em solid #383b42;
     cursor: grab;
 }
 
 .meme-gallery::-webkit-scrollbar-thumb{
-    border-top: 300px solid  #1fa993;
-    border-radius:  6px;
+    border-top: 18.75em solid  #1fa993;
+    border-radius:  0.375em;
 }

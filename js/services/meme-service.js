@@ -87,6 +87,12 @@ function getImgs() {
     return gImgs
 }
 
+function getRandomImg() {
+    const imgs = getImgs()
+    const rndIdx = getRandomIntInclusive(0, imgs.length - 1);
+    return imgs[rndIdx]
+}
+
 function getImdById(imgId) {
     return gImgs.find(({ id }) => imgId === id)
 }

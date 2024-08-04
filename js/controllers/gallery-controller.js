@@ -23,8 +23,6 @@ function onImgSelect(imgId) {
 }
 
 function onShowGallery(elLink) {
-    if (elLink.classList.contains('active')) return
-
     hideEditor()
     showGallery()
 }
@@ -61,7 +59,10 @@ function clearAllActiveHeaderNavs() {
     navLinks.forEach(link => link.classList.remove('active'))
 }
 
-
+function onDisplayRandomMeme() {
+    const { id: rndImgId } = getRandomImg()
+    onImgSelect(rndImgId)
+}
 
 
 

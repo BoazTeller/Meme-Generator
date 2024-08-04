@@ -12,18 +12,11 @@ function renderGallery() {
     elGallery.innerHTML = strHTMLs
 }
 
-function onUpdateActiveNav(elLink) {
-    if (elLink.classList.contains('active')) return
-
-    const navLinks = document.querySelectorAll('.main-nav a')
-    navLinks.forEach(link => link.classList.remove('active'))
-    elLink.classList.add('active')
-}
-
 function onImgSelect(imgId) {    
     createMeme(imgId)  
 
     hideGallery()
+    clearAllActiveHeaderNavs()
     showEditor()
 
     renderMeme()
@@ -56,6 +49,17 @@ function showEditor() {
     elEditor.classList.remove('hidden')
 }
 
+function onUpdateActiveNav(elLink) {
+    if (elLink.classList.contains('active')) return
+
+    clearAllActiveHeaderNavs()
+    elLink.classList.add('active')
+}
+
+function clearAllActiveHeaderNavs() {
+    const navLinks = document.querySelectorAll('.main-nav a')
+    navLinks.forEach(link => link.classList.remove('active'))
+}
 
 
 

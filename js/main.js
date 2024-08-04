@@ -3,21 +3,10 @@
 ///////////////////////////////
 // Note: need to find a better solution for the canvas functions
 
-const TOUCH_EVENTS = ['touchstart', 'touchmove', 'touchend']
-
-let gElCanvas
-let gCtx
-
 function onInit() {
-    // initCanvas()
     // resizeCanvas()
- 
+    initCanvas()
     renderGallery()
-}
-
-function initCanvas() {
-    gElCanvas = document.querySelector('canvas')
-    gCtx = gElCanvas.getContext('2d')
 }
 
 function resizeCanvas() {

@@ -72,10 +72,14 @@ function _createLine() {
     return {
         id: makeId(),
         txt: 'Enter text',
+        font: 'Arial',
         size: 20,
-        color: 'red',
-        x: 100,
-        y: 100
+        colorFill: 'red',
+        colorStroke: 'black',
+        pos: {
+            x: 100,
+            y: 100
+        }
     }
 }
 
@@ -103,4 +107,14 @@ function _createKeywordsMap() {
         'cat': 16, 
         'baby': 2
     }
+}
+
+function setLineTxt(txt) {
+    const line = getSelectedLine()
+    line.txt = txt
+}
+
+function getSelectedLine() {
+    const selectedLineIdx = gMeme.selectedLineIdx
+    return gMeme.lines[selectedLineIdx]
 }

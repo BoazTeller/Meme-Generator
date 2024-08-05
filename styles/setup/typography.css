@@ -12,3 +12,15 @@
 	font-family: poppins-med;
 	src: url(../../fonts/poppins/Poppins-Medium.ttf);
 }
+
+/* Fonts through Google Fonts CDN */
+.impact { font-family: 'Impact', sans-serif; }
+.comic-sans { font-family: 'Comic Sans MS', cursive, sans-serif; }
+.bebas-neue { font-family: 'Bebas Neue', sans-serif; }
+.lobster { font-family: 'Lobster', cursive; }
+.anton { font-family: 'Anton', sans-serif; }
+.oswald { font-family: 'Oswald', sans-serif; }
+.roboto { font-family: 'Roboto', sans-serif; }
+.montserrat { font-family: 'Montserrat', sans-serif; }
+.fjalla-one { font-family: 'Fjalla One', sans-serif; }
+.raleway { font-family: 'Raleway', sans-serif; }

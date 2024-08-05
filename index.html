@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <title>MemeMania</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon-32x32.png">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Roboto:wght@400;700&family=Montserrat:wght@400;700&family=Raleway:wght@400;700&family=Fjalla+One&family=Lobster&family=Bebas+Neue&family=Anton&family=Oswald&display=swap">
 </head>
 
 <body onload="onInit()" class="main-layout">
@@ -33,8 +34,7 @@
     </header>
 
     <div class="meme-gallery-container">
-        <section class="meme-gallery">
-        </section>
+        <section class="meme-gallery"></section>
     </div>
 
     <div class="meme-editor-container flex hidden">
@@ -43,7 +43,7 @@
         </div>
 
         <div class="editor align-center">
-            <input type="text" id="text-input" class="text-input" autocomplete=off placeholder="Enter text" oninput="onTextInput(this.value)"> 
+            <input type="text" id="text-input" class="text-input" autocomplete="off" placeholder="Enter text" oninput="onTextInput(this.value)"> 
             
             <div class="line-select-controls">
                 <button onclick="onAddLine()">Add Line</button>
@@ -52,11 +52,37 @@
             </div>
 
             <div class="text-controls">
-                <button onclick="onUpdateFontSize('increase')">Increase Font</button>
-                <button onclick="onUpdateFontSize('decrease')">Decrease Font</button>
-                <button onclick="onSetTextAlignment('left')">Align Left</button>
-                <button onclick="onSetTextAlignment('center')">Align Center</button>
-                <button onclick="onSetTextAlignment('right')">Align Right</button>
+                <div>
+                    <button onclick="onUpdateFontSize('increase')">Increase Font</button>
+                    <button onclick="onUpdateFontSize('decrease')">Decrease Font</button>
+                    <button onclick="onSetTextAlignment('left')">Align Left</button>
+                    <button onclick="onSetTextAlignment('center')">Align Center</button>
+                    <button onclick="onSetTextAlignment('right')">Align Right</button>
+                </div>
+                <div>
+                    <select id="font-select" oninput="onSetFontFamily(this.value)">
+                        <option value="poppins">Poppins</option>
+                        <option value="impact">Impact</option>
+                        <option value="comic-sans">Comic Sans MS</option>
+                        <option value="bebas-neue">Bebas Neue</option>
+                        <option value="lobster">Lobster</option>
+                        <option value="anton">Anton</option>
+                        <option value="oswald">Oswald</option>
+                        <option value="roboto">Roboto</option>
+                        <option value="montserrat">Montserrat</option>
+                        <option value="fjalla-one">Fjalla One</option>
+                        <option value="raleway">Raleway</option>
+                    </select>
+
+                    <button id="btn-color-stroke">
+                        <input type="color" id="stroke-color" class="" oninput="onSetStrokeStyle(this.value)">
+                        Set Stroke Color
+                    </button>
+                    <button id="btn-color-fill">
+                        <input type="color" id="fill-color" class="" oninput="onSetFillStyle(this.value)">
+                        Set Fill Color
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -77,5 +103,5 @@
     <script src="js/main.js"></script>
     
 </body>
- 
+
 </html>

@@ -22,19 +22,48 @@ function renderImg(imgSrc) {
 ///////////////////////////////////////////////////
 
 function renderLines() {
-    const { lines } = getMeme()
+    const { lines, selectedLineIdx  } = getMeme()
+    if (!lines) return
 
-    lines.forEach(line => {
-        const { txt, font, colorStroke, colorFill, size, pos } = line
+    lines.forEach((line, idx) => {
+        const { txt, font, strokeStyle, fillStyle, size, pos } = line
         
-        gCtx.strokeStyle = colorStroke
-        gCtx.fillStyle = colorFill
+        gCtx.strokeStyle = strokeStyle
+        gCtx.fillStyle = fillStyle
         gCtx.font = `${size}px ${font}`
         gCtx.textBaseline = 'middle'
         gCtx.textAlign = 'center'
         gCtx.fillText(txt, pos.x, pos.y)
         gCtx.strokeText(txt, pos.x, pos.y)
+
+        if (idx === selectedLineIdx) {
+            renderLineFrame(txt, size, pos)
+        }
     })
+}
+
+function renderLineFrame(txt, size, pos) {
+    const framePaddingX = 5
+    const framePaddingY = 3
+    
+    const lineWidth = gCtx.measureText(txt).width
+    const lineHeight = size
+    const frameWidth = lineWidth + framePaddingX * 2
+    const frameHeight = lineHeight + framePaddingY * 2
+    
+    gCtx.save()
+    gCtx.strokeStyle = 'black'
+    gCtx.lineWidth = 1.5
+    gCtx.setLineDash([12, 12])
+
+    gCtx.strokeRect(
+        pos.x - lineWidth / 2 - framePaddingX,
+        pos.y - lineHeight / 2 - framePaddingY,
+        frameWidth,
+        frameHeight
+    )
+
+    gCtx.restore()
 }
 
 function onTextInput(txt) {
@@ -107,6 +136,21 @@ function onSetTextAlignment(alignment) {
     const textWidth = gCtx.measureText(line.txt).width
     setTextAlignment(alignment, textWidth, canvasWidth)
 
+    renderMeme()
+}
+
+function onSetStrokeStyle(color) {
+    setStrokeStyle(color)
+    renderMeme()
+}
+
+function onSetFillStyle(color) {
+    setFillStyle(color)
+    renderMeme()
+}
+
+function onSetFontFamily(font) {
+    setFontFamily(font)
     renderMeme()
 }
 

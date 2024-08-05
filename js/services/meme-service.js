@@ -75,8 +75,8 @@ function _createLine() {
         txt: 'Enter text',
         font: 'Arial',
         size: 20,
-        colorFill: 'red',
-        colorStroke: 'black',
+        strokeStyle: '',
+        fillStyle: 'red',
         pos: {
             x: 250,
             y: 30
@@ -161,7 +161,7 @@ function deleteLine() {
 
 function increaseFontSize() {
     const line = getSelectedLine()
-    if (line.size > 50) return 
+    if (line.size > 80) return 
     
     line.size += 2
 }
@@ -196,4 +196,19 @@ function setTextAlignment(alignment, textWidth, canvasWidth) {
     } else if (alignment === 'right') {
         line.pos.x = canvasWidth - textWidth / 2
     }
+}
+
+function setStrokeStyle(color) {
+    const line = getSelectedLine()
+    if (line) line.strokeStyle = color
+}
+
+function setFillStyle(color) {
+    const line = getSelectedLine()
+    if (line) line.fillStyle = color
+}
+
+function setFontFamily(font) {
+    const line = getSelectedLine()
+    if (line) line.font = font
 }

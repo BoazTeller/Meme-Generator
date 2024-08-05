@@ -4,8 +4,8 @@
 // Note: need to find a better solution for the canvas functions
 
 function onInit() {
-    // resizeCanvas()
     initCanvas()
+    addListeners() 
     renderGallery()
 }
 
@@ -25,28 +25,39 @@ function getCanvasCenter() {
     }
 }
 
-// function addListeners() {
-//     addMouseListeners()
-//     addTouchListeners()
-//     addResizeListeners()
-// }
+function addListeners() {
+    addMouseListeners()
+    addTouchListeners()
+    addResizeListeners()
+}
 
-// function addMouseListeners() {
-//     gElCanvas.addEventListener('mousedown', onStartDraw)
-//     gElCanvas.addEventListener('mousemove', onDraw)
-//     gElCanvas.addEventListener('mouseup', onEndDraw)
-// }
+function addMouseListeners() {
+    gElCanvas.addEventListener('mousedown', onMouseDown)
+    gElCanvas.addEventListener('mousemove', onMouseMove)
+    gElCanvas.addEventListener('mouseup', onMouseUp)
+}
 
-// function addTouchListeners() {
-//     gElCanvas.addEventListener('touchstart', onStartDraw)
-//     gElCanvas.addEventListener('touchmove', onDraw)
-//     gElCanvas.addEventListener('touchend', onEndDraw)
-// }
+function addTouchListeners() {
+    gElCanvas.addEventListener('touchstart', onMouseDown)
+    gElCanvas.addEventListener('touchmove', onMouseMove)
+    gElCanvas.addEventListener('touchend', onMouseUp)
+}
 
-// function addResizeListeners() {
-//     window.addEventListener('resize', () => {
-//         resizeCanvas()
-//         renderCanvas()
-//     })
-// }
+function addResizeListeners() {
+    window.addEventListener('resize', () => {
+        resizeCanvas()
+        renderCanvas()
+    })
+}
 
+function onMouseMove() {
+
+}
+
+function onMouseDown() {
+
+}
+
+function onMouseUp() {
+
+}

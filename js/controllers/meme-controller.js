@@ -31,7 +31,7 @@ function renderLines() {
         gCtx.fillStyle = colorFill
         gCtx.font = `${size}px ${font}`
         gCtx.textBaseline = 'middle'
-        gCtx.textAlign = 'center'
+        gCtx.textAlign = 'left'
         gCtx.fillText(txt, pos.x, pos.y)
         gCtx.strokeText(txt, pos.x, pos.y)
     })
@@ -97,6 +97,31 @@ function updateTextInput() {
     } else {
         elTextInput.value = txt
     }
+}
+
+function onSetTextAlignment(alignment) {
+    const line = getSelectedLine()
+    if (!line) return
+    
+
+    const posXoptions  = {
+        left: 0,
+        center: getCanvasDimension('width') / 2,
+        right: getCanvasDimension('width')
+    }
+
+    const newPosX = posXoptions[alignment]
+    console.log(newPosX)
+    line.pos.x = newPosX
+    // if (alignment === 'left') {
+    //     setAlignTextLeft()
+    // } else if (alignment === 'center') {
+    //     setAlignTextCenter()
+    // } else if (alignment === 'right') {
+    //     setAlignTextRight()
+    // }
+
+    renderMeme()
 }
 
 //////////////////////////////////////////////

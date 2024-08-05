@@ -171,3 +171,17 @@ function decreaseFontSize() {
     line.size = Math.max(2, line.size - 2) 
 }
 
+function setAlignTextLeft() {
+    const line = getSelectedLine()
+    if (line) line.align = 'left'
+}
+
+function setAlignTextCenter() {
+    const line = getSelectedLine()
+    if (line) line.align = 'center'
+}
+
+function setAlignTextRight() {
+    const line = getSelectedLine()
+    if (line) line.align = 'right'
+}

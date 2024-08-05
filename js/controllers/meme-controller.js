@@ -31,7 +31,7 @@ function renderLines() {
         gCtx.fillStyle = colorFill
         gCtx.font = `${size}px ${font}`
         gCtx.textBaseline = 'middle'
-        gCtx.textAlign = 'left'
+        gCtx.textAlign = 'center'
         gCtx.fillText(txt, pos.x, pos.y)
         gCtx.strokeText(txt, pos.x, pos.y)
     })
@@ -102,24 +102,10 @@ function updateTextInput() {
 function onSetTextAlignment(alignment) {
     const line = getSelectedLine()
     if (!line) return
-    
 
-    const posXoptions  = {
-        left: 0,
-        center: getCanvasDimension('width') / 2,
-        right: getCanvasDimension('width')
-    }
-
-    const newPosX = posXoptions[alignment]
-    console.log(newPosX)
-    line.pos.x = newPosX
-    // if (alignment === 'left') {
-    //     setAlignTextLeft()
-    // } else if (alignment === 'center') {
-    //     setAlignTextCenter()
-    // } else if (alignment === 'right') {
-    //     setAlignTextRight()
-    // }
+    const canvasWidth = getCanvasDimension('width')
+    const textWidth = gCtx.measureText(line.txt).width
+    setTextAlignment(alignment, textWidth, canvasWidth)
 
     renderMeme()
 }
@@ -132,10 +118,10 @@ function initCanvas() {
 }
 
 function getCanvasDimension(dimension) {
-    if (dimension === 'width') {
-        return gElCanvas.width
-    } else if (dimension === 'height') {
-        return gElCanvas.height
-    } 
+        if (dimension === 'width') {
+            return gElCanvas.width
+        } else if (dimension === 'height') {
+            return gElCanvas.height
+        } 
 }
 

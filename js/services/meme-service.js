@@ -185,3 +185,15 @@ function setAlignTextRight() {
     const line = getSelectedLine()
     if (line) line.align = 'right'
 }
+
+function setTextAlignment(alignment, textWidth, canvasWidth) {
+    const line = getSelectedLine()
+
+    if (alignment === 'left') {
+        line.pos.x = textWidth / 2
+    } else if (alignment === 'center') {
+        line.pos.x = canvasWidth / 2
+    } else if (alignment === 'right') {
+        line.pos.x = canvasWidth - textWidth / 2
+    }
+}

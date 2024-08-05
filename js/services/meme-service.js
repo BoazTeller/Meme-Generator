@@ -5,6 +5,7 @@ const KEYWORDS_SEARCHED = 'keywordsDB'
 
 let gMeme
 let gSavedMemes
+let gLinePosY = 50
 
 let gKeywordSearchCountMap 
 _createKeywordsMap()
@@ -77,8 +78,8 @@ function _createLine() {
         colorFill: 'red',
         colorStroke: 'black',
         pos: {
-            x: 100,
-            y: 100
+            x: 250,
+            y: 30
         }
     }
 }
@@ -117,4 +118,23 @@ function setLineTxt(txt) {
 function getSelectedLine() {
     const selectedLineIdx = gMeme.selectedLineIdx
     return gMeme.lines[selectedLineIdx]
+}
+
+function addLine(height) {
+    const newLine = _createLine()
+
+    newLine.pos.y = calcLinePos(height)
+
+    gMeme.lines.push(newLine)
+    gMeme.selectedLineIdx = gMeme.lines.length - 1
+}
+
+function calcLinePos(height) {
+    const numOfLines = gMeme.lines.length
+
+    if (numOfLines === 1) {
+        return height - 30
+    } else {
+        return height / 2
+    }
 }

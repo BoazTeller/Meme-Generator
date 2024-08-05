@@ -37,14 +37,17 @@
         </section>
     </div>
 
-    <div class="meme-editor-container hidden">
+    <div class="meme-editor-container flex hidden">
         <div class="canvas-container">
             <canvas width="500" height="500"></canvas>
         </div>
 
-        <div class="editor">
+        <div class="editor align-center">
             <input type="text" id="text-input" class="text-input" oninput="onTextInput(this.value)"> 
-              
+            
+            <div class="line-select-controls">
+                <button onclick="onAddLine()">Add Line</button>
+            </div>
         </div>
     </div>
 

@@ -42,7 +42,20 @@ function initCanvas() {
 }
 
 function onTextInput(txt) {
-    console.log('text')
     setLineTxt(txt)
     renderMeme()
+}
+
+function onAddLine() {
+    const canvasHeight = getCanvasDimension('height')
+    addLine(canvasHeight)
+    renderLines()
+}
+
+function getCanvasDimension(dimension) {
+    if (dimension === 'width') {
+        return gElCanvas.width
+    } else if (dimension === 'height') {
+        return gElCanvas.height
+    } 
 }

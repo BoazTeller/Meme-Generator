@@ -56,10 +56,25 @@ function onSwitchLine() {
 }
 
 function onDeleteLine() {
+    if (!getSelectedLine()) return
+
     deleteLine()
     clearTextInput()
     updateTextInput()
     renderMeme()
+}
+
+function onUpdateFontSize(action) {
+    const line = getSelectedLine()
+    if (!line) return
+
+    if (action === 'increase') {
+        increaseFontSize()
+    } else if (action === 'decrease') {
+        decreaseFontSize()
+    } 
+
+    renderMeme();
 }
 
 function clearTextInput() {
@@ -69,10 +84,14 @@ function clearTextInput() {
 }
 
 function updateTextInput() {
-    const { txt } = getSelectedLine()
+    let txt
+    const line = getSelectedLine()
+    if (!line) txt = ''
+    else txt = line.txt
+    
     const elTextInput = document.querySelector('.text-input')
     const placeholderText = elTextInput.placeholder
-    
+
     if (txt === placeholderText) {
         elTextInput.value = ''
     } else {

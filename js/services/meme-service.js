@@ -121,18 +121,21 @@ function getSelectedLine() {
 }
 
 function addLine(height) {
-    const newLine = _createLine()
+    const linePosY = calcLinePos(height)
 
-    newLine.pos.y = calcLinePos(height)
+    const newLine = _createLine()
+    newLine.pos.y = linePosY
 
     gMeme.lines.push(newLine)
     gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
 
 function calcLinePos(height) {
-    const numOfLines = gMeme.lines.length
+    const numOfLines = gMeme.lines.length || 0
 
-    if (numOfLines === 1) {
+    if (numOfLines === 0) {
+        return 30
+    } else if (numOfLines === 1) {
         return height - 30
     } else {
         return height / 2
@@ -155,3 +158,16 @@ function deleteLine() {
     gMeme.lines.splice(lineIdx, 1)
     gMeme.selectedLineIdx = 0
 }
+
+function increaseFontSize() {
+    const line = getSelectedLine()
+    if (line.size > 50) return 
+    
+    line.size += 2
+}
+
+function decreaseFontSize() {
+    const line = getSelectedLine()    
+    line.size = Math.max(2, line.size - 2) 
+}
+

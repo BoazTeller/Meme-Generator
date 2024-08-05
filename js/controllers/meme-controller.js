@@ -55,10 +55,17 @@ function onSwitchLine() {
     updateTextInput()
 }
 
+function onDeleteLine() {
+    deleteLine()
+    clearTextInput()
+    updateTextInput()
+    renderMeme()
+}
+
 function clearTextInput() {
     const elTextInput = document.querySelector('.text-input')
     elTextInput.value = ''
-    elTextInput.focus()
+    // elTextInput.focus()
 }
 
 function updateTextInput() {
@@ -71,7 +78,6 @@ function updateTextInput() {
     } else {
         elTextInput.value = txt
     }
-
 }
 
 //////////////////////////////////////////////

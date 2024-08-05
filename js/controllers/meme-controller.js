@@ -1,6 +1,6 @@
 'use strict'
 
-const TOUCH_EVENTS = ['touchstart', 'touchmove', 'touchend']
+const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
 let gElCanvas
 let gCtx

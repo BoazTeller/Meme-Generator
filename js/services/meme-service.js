@@ -77,6 +77,7 @@ function _createLine() {
         size: 20,
         strokeStyle: '',
         fillStyle: 'red',
+        isDrag: false,
         pos: {
             x: 250,
             y: 30
@@ -211,4 +212,21 @@ function setFillStyle(color) {
 function setFontFamily(font) {
     const line = getSelectedLine()
     if (line) line.font = font
+}
+
+function setLineIsDrag(line, isDrag) {
+    line.isDrag = isDrag
+}
+
+function updateLinePos(dx, dy) {
+    const line = getSelectedLine()
+    line.pos.x += dx
+    line.pos.y += dy
+}
+
+function setSelectedLineIdx(clickedLine) {
+    if (!clickedLine) return
+
+    const lineIdx = gMeme.lines.findIndex(line => line === clickedLine)
+    gMeme.selectedLineIdx = lineIdx
 }

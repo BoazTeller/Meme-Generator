@@ -19,6 +19,7 @@ function renderImg(imgSrc) {
     gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
 }
+///////////////////////////////////////////////////
 
 function renderLines() {
     const { lines } = getMeme()
@@ -36,11 +37,6 @@ function renderLines() {
     })
 }
 
-function initCanvas() {
-    gElCanvas = document.querySelector('canvas')
-    gCtx = gElCanvas.getContext('2d')
-}
-
 function onTextInput(txt) {
     setLineTxt(txt)
     renderMeme()
@@ -52,6 +48,17 @@ function onAddLine() {
     renderLines()
 }
 
+function onSwitchLine() {
+    switchLine()
+}
+
+//////////////////////////////////////////////
+
+function initCanvas() {
+    gElCanvas = document.querySelector('canvas')
+    gCtx = gElCanvas.getContext('2d')
+}
+
 function getCanvasDimension(dimension) {
     if (dimension === 'width') {
         return gElCanvas.width
@@ -59,3 +66,4 @@ function getCanvasDimension(dimension) {
         return gElCanvas.height
     } 
 }
+

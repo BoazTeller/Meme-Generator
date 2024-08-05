@@ -138,3 +138,14 @@ function calcLinePos(height) {
         return height / 2
     }
 }
+
+function onSwitchLine() {
+    const numOfLine = gMeme.selectedLineIdx + 1
+    const numOfLines = gMeme.lines.length
+
+    if (numOfLine >= numOfLines) {
+        gMeme.selectedLineIdx = 0
+    } else {
+        gMeme.selectedLineIdx++
+    }
+}

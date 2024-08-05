@@ -45,11 +45,33 @@ function onTextInput(txt) {
 function onAddLine() {
     const canvasHeight = getCanvasDimension('height')
     addLine(canvasHeight)
+    clearTextInput()
     renderLines()
 }
 
 function onSwitchLine() {
     switchLine()
+    clearTextInput()
+    updateTextInput()
+}
+
+function clearTextInput() {
+    const elTextInput = document.querySelector('.text-input')
+    elTextInput.value = ''
+    elTextInput.focus()
+}
+
+function updateTextInput() {
+    const { txt } = getSelectedLine()
+    const elTextInput = document.querySelector('.text-input')
+    const placeholderText = elTextInput.placeholder
+    
+    if (txt === placeholderText) {
+        elTextInput.value = ''
+    } else {
+        elTextInput.value = txt
+    }
+
 }
 
 //////////////////////////////////////////////

@@ -139,7 +139,7 @@ function calcLinePos(height) {
     }
 }
 
-function onSwitchLine() {
+function switchLine() {
     const numOfLine = gMeme.selectedLineIdx + 1
     const numOfLines = gMeme.lines.length
 
@@ -149,3 +149,4 @@ function onSwitchLine() {
         gMeme.selectedLineIdx++
     }
 }
+

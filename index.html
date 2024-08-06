@@ -8,6 +8,7 @@
     <title>MemeMania</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon-32x32.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Roboto:wght@400;700&family=Montserrat:wght@400;700&family=Raleway:wght@400;700&family=Fjalla+One&family=Lobster&family=Bebas+Neue&family=Anton&family=Oswald&display=swap">
+    <!-- <link rel="stylesheet" href="/fonts/fa-6.6.0/css/all.css"> -->
 </head>
 
 <body onload="onInit()" class="main-layout">
@@ -33,60 +34,77 @@
         <div class="spacer"></div>
     </header>
 
-    <div class="meme-gallery-container">
+    <div class="meme-gallery-container hidden">
         <section class="meme-gallery"></section>
     </div>
 
-    <div class="meme-editor-container flex hidden">
+    <div class="meme-editor-container flex">
         <div class="canvas-container">
             <canvas width="500" height="500" onclick="onCanvasSelectLine(event)"></canvas>
         </div>
 
         <div class="editor align-center">
             <input type="text" id="text-input" class="text-input" autocomplete="off" placeholder="Enter text" oninput="onTextInput(this.value)"> 
-            
-            <div class="line-select-controls">
-                <button onclick="onAddLine()">Add Line</button>
-                <button onclick="onSwitchLine()">Switch Line</button>
-                <button onclick="onDeleteLine()">Delete Line</button>
+
+            <div class="line-controls flex">
+                <button onclick="onSwitchLine()" class="btn-switch-line fa up down"></button>
+                <button onclick="onAddLine()" class="btn-add-line fa plus"></button>    
+                <button onclick="onDeleteLine()" class="btn-delete-line fa trash"></button>
             </div>
 
             <div class="text-controls">
-                <div>
-                    <button onclick="onUpdateFontSize('increase')">Increase Font</button>
-                    <button onclick="onUpdateFontSize('decrease')">Decrease Font</button>
-                    <button onclick="onSetTextAlignment('left')">Align Left</button>
-                    <button onclick="onSetTextAlignment('center')">Align Center</button>
-                    <button onclick="onSetTextAlignment('right')">Align Right</button>
-                </div>
-                <div>
-                    <select id="font-select" oninput="onSetFontFamily(this.value)">
-                        <option value="poppins">Poppins</option>
-                        <option value="impact">Impact</option>
-                        <option value="comic-sans">Comic Sans MS</option>
-                        <option value="bebas-neue">Bebas Neue</option>
-                        <option value="lobster">Lobster</option>
-                        <option value="anton">Anton</option>
-                        <option value="oswald">Oswald</option>
-                        <option value="roboto">Roboto</option>
-                        <option value="montserrat">Montserrat</option>
-                        <option value="fjalla-one">Fjalla One</option>
-                        <option value="raleway">Raleway</option>
-                    </select>
+                <button onclick="onUpdateFontSize('increase')" class="fa font"><span class="plus">+</span></button>
+                <button onclick="onUpdateFontSize('decrease')" class="fa font"><span class="minus">-</span></button>
+                <button onclick="onSetTextAlignment('left')" class="fa align-left"></button>
+                <button onclick="onSetTextAlignment('center')" class="fa align-center"></button>
+                <button onclick="onSetTextAlignment('right')" class="fa align-right"></button>
+                
+                <select id="font-select" class="fa caret-down" oninput="onSetFontFamily(this.value)">
+                    <option value="poppins">Poppins</option>
+                    <option value="impact">Impact</option>
+                    <option value="comic-sans">Comic Sans MS</option>
+                    <option value="bebas-neue">Bebas Neue</option>
+                    <option value="lobster">Lobster</option>
+                    <option value="anton">Anton</option>
+                    <option value="oswald">Oswald</option>
+                    <option value="roboto">Roboto</option>
+                    <option value="montserrat">Montserrat</option>
+                    <option value="fjalla-one">Fjalla One</option>
+                    <option value="raleway">Raleway</option>
+                </select>
+                <button class="btn-color-picker fa brush">
+                    <input type="color" id="stroke-color" class="" oninput="onSetStrokeStyle(this.value)">
+                </button>
+                <button class="btn-color-picker fa fill-drip">
+                    <input type="color" id="fill-color" class="" oninput="onSetFillStyle(this.value)">
+                </button>
+            </div>
 
-                    <button id="btn-color-stroke">
-                        <input type="color" id="stroke-color" class="" oninput="onSetStrokeStyle(this.value)">
-                        Set Stroke Color
-                    </button>
-                    <button id="btn-color-fill">
-                        <input type="color" id="fill-color" class="" oninput="onSetFillStyle(this.value)">
-                        Set Fill Color
-                    </button>
-                </div>
+            <div class="emoji-container flex">
+                <button onclick="onAddLine('😂')">😂</button>
+                <button onclick="onAddLine('❤️')">❤️</button>
+                <button onclick="onAddLine('🔥')">🔥</button>
+                <button onclick="onAddLine('😭')">😭</button>
+                <button onclick="onAddLine('😎')">😎</button>
+                <button onclick="onAddLine('🤩')">🤩</button>
+                <button onclick="onAddLine('👍')">👍</button>
+                <button onclick="onAddLine('👑')">👑</button>
+                <button onclick="onAddLine('😜')">😜</button>
+                <button onclick="onAddLine('🎉')">🎉</button>
+                <button onclick="onAddLine('🦄')">🦄</button>
+                <button onclick="onAddLine('😊')">😊</button>
+                <button onclick="onAddLine('✨')">✨</button>
+                <button onclick="onAddLine('🚀')">🚀</button>
+                <button onclick="onAddLine('🙌')">🙌</button>
+                <button onclick="onAddLine('💥')">💥</button>
+                <button onclick="onAddLine('🍕')">🍕</button>
+                <button onclick="onAddLine('🎈')">🎈</button>
+                <button onclick="onAddLine('👀')">👀</button>
+                <button onclick="onAddLine('💯')">💯</button>
             </div>
         </div>
     </div>
-
+    
     <footer class="main-footer full">
         <div class="logo">MemeMania<span>©</span></div>
         <div class="footer-content">

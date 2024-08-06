@@ -47,3 +47,7 @@
     border-top: 18.75em solid  #1fa993;
     border-radius:  0.375em;
 }
+
+.meme-gallery::-webkit-scrollbar-thumb:active {
+    cursor: grabbing;
+  }

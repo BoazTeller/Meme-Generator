@@ -1,10 +1,11 @@
+/* Main font: Poppins */
 @font-face {
 	font-family: poppins-light;
     src: url(../../fonts/poppins/Poppins-Light.ttf);
 }
 
 @font-face {
-	font-family: poppins-reg;
+	font-family: poppins;
     src: url(../../fonts/poppins/Poppins-Regular.ttf);
 }
 
@@ -13,7 +14,12 @@
 	src: url(../../fonts/poppins/Poppins-Medium.ttf);
 }
 
-/* Fonts through Google Fonts CDN */
+@font-face {
+	font-family: poppins-semibold;
+	src: url(../../fonts/poppins/Poppins-SemiBold.ttf);
+}
+
+/* Various meme editor fonts through Google Fonts CDN */
 .impact { font-family: 'Impact', sans-serif; }
 .comic-sans { font-family: 'Comic Sans MS', cursive, sans-serif; }
 .bebas-neue { font-family: 'Bebas Neue', sans-serif; }
@@ -24,3 +30,68 @@
 .montserrat { font-family: 'Montserrat', sans-serif; }
 .fjalla-one { font-family: 'Fjalla One', sans-serif; }
 .raleway { font-family: 'Raleway', sans-serif; }
+
+
+/* Font Awesome */
+@font-face {
+    font-family: fa;
+    src: url("../../fonts/fa/fa-solid-900.ttf");
+}
+
+.fa::before {
+    font-family: fa;
+}
+
+.fa::after {
+    font-family: fa;
+}
+
+.fa.font::before {
+    content: "\f031";
+}
+
+.fa.plus::before {
+    content: "\2b";
+}
+
+.fa.plus2::after {
+    content: "\2b";
+}
+
+.fa.trash::before {
+    content: "\f1f8";
+}
+
+.fa.up::before {
+    content: "\f30c";
+}
+
+.fa.down::after {
+    content: "\f309";
+}
+
+.fa.up-down::before {
+    content: "\f338";
+}
+
+.fa.align-left::before {
+    content: "\f036";
+}
+
+.fa.align-center::before {
+    content: "\f037";
+}
+
+.fa.align-right::before {
+    content: "\f038";
+}
+
+.fa.brush::before {
+    content: "\f55d";
+}
+
+.fa.fill-drip::before {
+    content: "\f576";
+}
+
+ 

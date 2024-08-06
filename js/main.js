@@ -27,6 +27,7 @@ function getCanvasCenter() {
 
 function addListeners() {
     addMouseListeners()
+    addColorPickerListeners()
     // addTouchListeners()
     // addResizeListeners()
 }
@@ -35,6 +36,18 @@ function addMouseListeners() {
     gElCanvas.addEventListener('mousedown', onDown)
     gElCanvas.addEventListener('mousemove', onMove)
     gElCanvas.addEventListener('mouseup', onUp)
+}
+
+// Function to trigger color input click on button click
+function addColorPickerListeners() {
+    const colorInputs = document.querySelectorAll('button input[type=color]') 
+
+    colorInputs.forEach(input => {
+        const btn = input.parentElement
+        btn.addEventListener('click', () => {
+            input.click()
+        })
+    })
 }
 
 // function addTouchListeners() {

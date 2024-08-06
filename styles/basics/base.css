@@ -21,11 +21,6 @@ img {
     max-width: 100%;
 }
 
-img {
-  display: block;
-  max-width: 100%;
-}
-
 a {
     text-decoration: none;
     color: inherit;
@@ -39,7 +34,7 @@ p {
 }
 
 button {
-    background-color: inherit;
+    /* background-color: inherit; */
     cursor: pointer;
 }
 
@@ -58,4 +53,8 @@ body::-webkit-scrollbar-thumb {
   border-top: 19.5625em solid  #1fa993;
   border-radius:  0.375em;
   cursor: grab;
+}
+
+body::-webkit-scrollbar-thumb:active {
+  cursor: grabbing;
 }

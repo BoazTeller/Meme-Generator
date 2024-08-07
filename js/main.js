@@ -14,7 +14,7 @@ function onInit() {
 function addListeners() {
     addMouseListeners()
     addColorPickerListeners()
-    // addTouchListeners()
+    addTouchListeners()
     // addResizeListeners()
 }
 
@@ -22,6 +22,12 @@ function addMouseListeners() {
     gElCanvas.addEventListener('mousedown', onDown)
     gElCanvas.addEventListener('mousemove', onMove)
     gElCanvas.addEventListener('mouseup', onUp)
+}
+
+function addTouchListeners() {
+    gElCanvas.addEventListener('touchstart', onDown)
+    gElCanvas.addEventListener('touchmove', onMove)
+    gElCanvas.addEventListener('touchend', onUp)
 }
 
 // Function to trigger color input click on button click
@@ -43,29 +49,38 @@ function onDown(ev) {
     const clickedLine = isLineClicked(evPos)
     if (!clickedLine) return
 
-    setLineIsDrag(clickedLine, true) 
+    gDragOffset = {
+        x: evPos.x - clickedLine.pos.x,
+        y: evPos.y - clickedLine.pos.y
+    }
+
+    setLineIsDrag(clickedLine, true)
     setSelectedLineIdx(clickedLine)
-    document.body.style.cursor = 'grab'
+    document.body.style.cursor = 'grabbing'
     renderMeme()
 }
 
 function onMove(ev) {
     const { lines, selectedLineIdx } = getMeme()
-    const lineClicked = lines[selectedLineIdx]
-    if (!lineClicked || !lineClicked.isDrag) return
+    const line = lines[selectedLineIdx]
+    if (!line || !line.isDrag) return
 
     const evPos = getEvPos(ev)
-    const dx = evPos.x - lineClicked.pos.x
-    const dy = evPos.y - lineClicked.pos.y
-    
-    updateLinePos(dx, dy)
+    line.pos.x = evPos.x - gDragOffset.x
+    line.pos.y = evPos.y - gDragOffset.y
+
     document.body.style.cursor = 'grabbing'
     renderMeme()
 }
 
 function onUp() {
     const clickedLine = getSelectedLine()
-    setLineIsDrag(clickedLine, false)
+    if (clickedLine && clickedLine.isDrag) {
+        setLineIsDrag(clickedLine, false)
+    }
+
+    // reset offset
+    gDragOffset = null 
     document.body.style.cursor = 'auto'
 }
 

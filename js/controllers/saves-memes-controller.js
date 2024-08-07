@@ -3,9 +3,7 @@
 function renderSavedMemes() {
     const memes = getSavedMemes()
     if (!memes) return
-
-
-
+    
     let strHTMLs = ''
 
     memes.forEach(meme => {

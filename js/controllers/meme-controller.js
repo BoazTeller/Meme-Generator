@@ -4,6 +4,7 @@ const TOUCH_EVS = ['touchstart', 'touchmove', 'touchend']
 
 let gElCanvas
 let gCtx
+let gDragOffset = null
 
 function renderMeme() {
     const { selectedImgId: imgId } = getMeme()

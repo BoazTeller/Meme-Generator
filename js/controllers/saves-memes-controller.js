@@ -3,11 +3,11 @@
 function renderSavedMemes() {
     const memes = getSavedMemes()
     if (!memes) return
-    
-    let strHTMLs = ''
 
+    let strHTMLs = ''
+    
     memes.forEach(meme => {
-        const { selectedImgId, lines } = meme
+        let { lines, selectedImgId } = meme
         if (!getImgById(selectedImgId)) return
 
         const { url: imgSrc } = getImgById(selectedImgId)

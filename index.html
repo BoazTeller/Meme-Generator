@@ -8,7 +8,7 @@
     <title>MemeMania</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon-32x32.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Roboto:wght@400;700&family=Montserrat:wght@400;700&family=Raleway:wght@400;700&family=Fjalla+One&family=Lobster&family=Bebas+Neue&family=Anton&family=Oswald&display=swap">
-    <link rel="stylesheet" href="/fonts/fa-6.6.0/css/all.css">
+    <!-- <link rel="stylesheet" href="/fonts/fa-6.6.0/css/all.css"> -->
 </head>
 
 <body onload="onInit()" class="main-layout">
@@ -95,30 +95,30 @@
             </div>
 
             <div class="emoji-container flex">
-                <button onclick="onAddLine('😂')">😂</button>
-                <button onclick="onAddLine('❤️')">❤️</button>
-                <button onclick="onAddLine('🔥')">🔥</button>
-                <button onclick="onAddLine('😭')">😭</button>
-                <button onclick="onAddLine('😎')">😎</button>
-                <button onclick="onAddLine('🤩')">🤩</button>
-                <button onclick="onAddLine('👍')">👍</button>
-                <button onclick="onAddLine('👑')">👑</button>
-                <button onclick="onAddLine('😜')">😜</button>
-                <button onclick="onAddLine('🎉')">🎉</button>
-                <button onclick="onAddLine('🦄')">🦄</button>
-                <button onclick="onAddLine('😊')">😊</button>
-                <button onclick="onAddLine('✨')">✨</button>
-                <button onclick="onAddLine('🚀')">🚀</button>
-                <button onclick="onAddLine('🙌')">🙌</button>
-                <button onclick="onAddLine('💥')">💥</button>
-                <button onclick="onAddLine('🍕')">🍕</button>
-                <button onclick="onAddLine('🎈')">🎈</button>
-                <button onclick="onAddLine('👀')">👀</button>
-                <button onclick="onAddLine('💯')">💯</button>
+                <button onclick="onAddLine(this.textContent)">😂</button>
+                <button onclick="onAddLine(this.textContent)">❤️</button>
+                <button onclick="onAddLine(this.textContent)">🔥</button>
+                <button onclick="onAddLine(this.textContent)">😭</button>
+                <button onclick="onAddLine(this.textContent)">😎</button>
+                <button onclick="onAddLine(this.textContent)">🤩</button>
+                <button onclick="onAddLine(this.textContent)">👍</button>
+                <button onclick="onAddLine(this.textContent)">👑</button>
+                <button onclick="onAddLine(this.textContent)">😜</button>
+                <button onclick="onAddLine(this.textContent)">🎉</button>
+                <button onclick="onAddLine(this.textContent)">🦄</button>
+                <button onclick="onAddLine(this.textContent)">😊</button>
+                <button onclick="onAddLine(this.textContent)">✨</button>
+                <button onclick="onAddLine(this.textContent)">🚀</button>
+                <button onclick="onAddLine(this.textContent)">🙌</button>
+                <button onclick="onAddLine(this.textContent)">💥</button>
+                <button onclick="onAddLine(this.textContent)">🍕</button>
+                <button onclick="onAddLine(this.textContent)">🎈</button>
+                <button onclick="onAddLine(this.textContent)">👀</button>
+                <button onclick="onAddLine(this.textContent)">💯</button>                
             </div>
 
-            <button class="save-btn" onclick="onSaveMeme()">SAVE
-            </button>
+            <button class="save-btn" onclick="onSaveMeme()">SAVE</button>
+            <a href="#" class="fa download" onclick="onDownloadMeme(this)" download="my-meme.jpg">Download</a>  
         </div>
     </div>
     

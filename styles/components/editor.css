@@ -202,3 +202,17 @@
     box-shadow: inset 0px 5px 0px #ffffff;
     background-color: #1e7cd3;
 }
+
+.editor a.fa.download {
+    width: 212px;
+    height: 50px;
+    border-radius: 15px;
+    filter: drop-shadow(0.314px 5.992px 0px #632687);
+    box-shadow: inset 0px 5px 0px #ffffff;
+    background-color: #8f44bb;
+
+    font-size: 21px;
+    color: #ffffff;
+    font-weight: 500;
+    font-family: "Poppins";
+}

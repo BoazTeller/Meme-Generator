@@ -7,10 +7,10 @@ let gCtx
 let gDragOffset = null
 
 function renderMeme() {
-    const { selectedImgId: imgId } = getMeme()
+    const { selectedImgId: imgId, lines } = getMeme()
     const { url: imgSrc } = getImdById(imgId)
     renderImg(imgSrc)
-    renderLines()
+    renderLines(lines)
 }
 
 function renderImg(imgSrc) {
@@ -20,11 +20,14 @@ function renderImg(imgSrc) {
     gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
 }
+
 ///////////////////////////////////////////////////
 
 function renderLines() {
-    const { lines, selectedLineIdx  } = getMeme()
-    if (!lines) return
+    const meme = getMeme()
+    if (!meme) return
+   
+    const { lines, selectedLineIdx } = meme
 
     lines.forEach((line, idx) => {
         const { txt, font, strokeStyle, fillStyle, size, pos } = line
@@ -72,11 +75,11 @@ function onTextInput(txt) {
     renderMeme()
 }
 
-function onAddLine() {
+function onAddLine(txt) {
     const canvasHeight = getCanvasDimension('height')
-    addLine(canvasHeight)
+    addLine(txt, canvasHeight)
     clearTextInput()
-    renderLines()
+    renderMeme()
 }
 
 function onSwitchLine() {
@@ -157,6 +160,14 @@ function onSetFontFamily(font) {
 
 function onSaveMeme() {
     saveMeme()
+}
+
+function onDownloadMeme(elLink) {
+    clearSelectedLine()
+    renderMeme()
+    
+    const dataURL = gElCanvas.toDataURL()
+    elLink.href = dataURL
 }
 
 //////////////////////////////////////////////

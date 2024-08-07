@@ -47,10 +47,10 @@ function _createMeme(imgId) {
     }
 }
 
-function _createLine() {
+function _createLine(txt = 'Enter text') {
     return {
         id: makeId(),
-        txt: 'Enter text',
+        txt,
         font: 'Arial',
         size: 20,
         strokeStyle: '',
@@ -65,7 +65,6 @@ function _createLine() {
 
 function _createKeywords() {
     gKeywordsSearchCount = loadFromStorage(KEYWORDS_SEARCH_KEY)
-    console.log(gKeywordsSearchCount)
 
     if (!gKeywordsSearchCount) {
         gKeywordsSearchCount = _generateKeywords()
@@ -143,10 +142,10 @@ function getSelectedLine() {
     return gMeme.lines[selectedLineIdx]
 }
 
-function addLine(height) {
+function addLine(txt, height) {
     const linePosY = calcLinePos(height)
 
-    const newLine = _createLine()
+    const newLine = _createLine(txt)
     newLine.pos.y = linePosY
 
     gMeme.lines.push(newLine)
@@ -296,6 +295,7 @@ function saveMeme() {
     
     // if (existingMeme) existingMeme.dataURL = getDataURL()
     // else 
+    
     gSavedMemes.push(structuredClone(gMeme))
     
     _saveMemes()
@@ -314,9 +314,15 @@ function deleteSavedMeme(memeId) {
 }
 
 function getSavedMemes() {
-    return gSavedMemes
+    return gSavedMemes;
+    // return loadFromStorageStorage(SAVED_MEMES_KEY)
 }
 
 function setSavedMeme(meme) {
     gMeme = meme
+}
+
+function clearSelectedLine() {
+    const meme = getMeme()
+    meme.selectedLineIdx = null
 }

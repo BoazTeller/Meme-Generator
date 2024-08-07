@@ -1,0 +1,108 @@
+.meme-search > * {
+    font-family: poppins-light;
+}
+
+.meme-search {    
+    align-items: center;
+
+    padding: 1.5625em 0em 2.5em 1.5625em;
+    border-top-left-radius: 0.625em;
+    border-top-right-radius: 0.625em;
+    background-color: #383b42;
+}
+
+.meme-search-icon-container {
+    position: relative;
+    
+    width: 100%;
+    max-width: 541px;
+    max-height: 58px;
+    
+    margin-inline-end: 1em;
+}
+
+.meme-search input[name="meme-search-input"] {
+    width: 100%;
+    max-width: 541px;
+    height: 58px;
+    padding-inline-start: 3.125em;
+    border-radius: 29px;
+
+    font-size: 21px;
+    color: #fefefe;
+
+    background-color: #22252c;
+}
+
+.meme-search .fa-solid.fa-magnifying-glass { 
+    position: absolute;
+    top: 50%;
+    right: 6%;
+    
+    font-size: 1.5em;
+    color: #2aa198;
+    
+    transform: translateY(-50%);
+} 
+
+.meme-search .btn-clear-search {
+    position: absolute;
+    top: 14%;
+    right: 13%;
+
+    width: 60px;
+    height: 40px;
+    border-radius: 18px;
+    
+    font-size:1.4em;
+    font-weight: 300;
+    text-align: center;
+    color: #fefefe;
+    
+    filter: drop-shadow(0px 3px 3.5px rgba(0,0,0,0.15));
+}
+
+.meme-search .fa.fa.delete-left {
+    padding-top: 0.15em;
+    padding-right: 0.3em;
+
+    background-image: linear-gradient(-86deg, #33bd6d 0%, #0b97b9 100%);
+}
+
+.meme-search .keywords-search-list {
+    width: 536px;
+    height: 50px;
+    overflow: hidden;
+
+    color: #fefefe;
+    text-align: center;
+
+    margin-inline-end: 1em;
+    gap: 1em;
+    padding-inline: 1em;
+
+    opacity: 0.400;
+    border-radius: 25px;
+    filter: drop-shadow(0px 3px 3.5px rgba(0,0,0,0.15));
+    background-color: #87898d;
+}
+
+.meme-search .keywords-search-list > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+}
+
+.meme-search .btn-img-import {
+    width: 92px;
+    height: 36px;
+    
+    border-radius: 18px;
+    filter: drop-shadow(0px 3px 3.5px rgba(0,0,0,0.15));
+    background-image: linear-gradient(-86deg, #33bd6d 0%, #0b97b9 100%);
+
+    font-size: 18px;
+    color: #fefefe;
+    text-align: center;
+}

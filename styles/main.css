@@ -14,5 +14,11 @@
 @import url("components/logo.css");
 @import url("components/meme-gallery.css");
 
+@import url("components/layout2.css");
+@import url("components/saved-memes.css");
+
+@import url("components/meme-search.css");
+
+
 /* MEDIA QUERIES */
 @import url("setup/mq.css");

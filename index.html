@@ -8,7 +8,7 @@
     <title>MemeMania</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon-32x32.png">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Roboto:wght@400;700&family=Montserrat:wght@400;700&family=Raleway:wght@400;700&family=Fjalla+One&family=Lobster&family=Bebas+Neue&family=Anton&family=Oswald&display=swap">
-    <!-- <link rel="stylesheet" href="/fonts/fa-6.6.0/css/all.css"> -->
+    <link rel="stylesheet" href="/fonts/fa-6.6.0/css/all.css">
 </head>
 
 <body onload="onInit()" class="main-layout">
@@ -23,7 +23,7 @@
                         <a class="active" onclick="onUpdateActiveNav(this), onShowGallery()" href="#">Gallery</a>
                     </li>
                     <li>
-                        <a onclick="onUpdateActiveNav(this)" href="#">Saved</a>
+                        <a onclick="onUpdateActiveNav(this), onDisplaySaved()" href="#">Saved</a>
                     </li>
                     <li>
                         <a onclick="onUpdateActiveNav(this), onDisplayRandomMeme()" href="#">Randomize</a>
@@ -34,11 +34,25 @@
         <div class="spacer"></div>
     </header>
 
-    <div class="meme-gallery-container hidden">
-        <section class="meme-gallery"></section>
-    </div>
+    <section class="meme-gallery-page">
+        <div class="meme-gallery-container">
+            <section class="meme-search flex">
+                <div class="meme-search-icon-container flex">
+                    <input type="text" class="meme-search-input" list="meme-keywords" name="meme-search-input" placeholder="Search" oninput="onSetFilter(this.value)">    
+                    <datalist id="meme-keywords"></datalist>
+                    <button class="btn-clear-search fa delete-left" onclick="onClearSearch()"></button>
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <ul class="keywords-search-list flex align-center space-evenly clean-list"></ul>
+                <!-- <label for="file-input" class="btn-img-import">Upload</label> -->
+                <button class="btn-img-import fa.file-import" onclick="triggerFileInput()">Upload</button>
+                <input type="file" id="file-input" class="file-input hidden" name="file-input" onchange="onImgInput(event)" accept="image/*"/>
+            </section> 
+            <section class="meme-gallery"></section>
+        </div>
+    </section>
 
-    <div class="meme-editor-container flex">
+    <div class="meme-editor-container flex hidden">
         <div class="canvas-container">
             <canvas width="500" height="500" onclick="onCanvasSelectLine(event)"></canvas>
         </div>
@@ -102,9 +116,19 @@
                 <button onclick="onAddLine('👀')">👀</button>
                 <button onclick="onAddLine('💯')">💯</button>
             </div>
+
+            <button class="save-btn" onclick="onSaveMeme()">SAVE
+            </button>
         </div>
     </div>
     
+    <section class="saved-memes-section hidden main-layout">
+        <header class="saved-memes-header">
+          <h1 class="saved-title">Saved Memes</h1>
+        </header>
+        <div class="saved-memes"></div>
+    </section>
+
     <footer class="main-footer full">
         <div class="logo">MemeMania<span>©</span></div>
         <div class="footer-content">
@@ -117,6 +141,7 @@
     <script src="js/services/storage-service.js"></script>
     <script src="js/services/meme-service.js"></script>
     <script src="js/controllers/meme-controller.js"></script>
+    <script src="js/controllers/saves-memes-controller.js"></script>
     <script src="js/controllers/gallery-controller.js"></script>
     <script src="js/main.js"></script>
     

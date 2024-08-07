@@ -154,6 +154,10 @@ function onSetFontFamily(font) {
     renderMeme()
 }
 
+function onSaveMeme() {
+    saveMeme()
+}
+
 //////////////////////////////////////////////
 
 function initCanvas() {
@@ -169,3 +173,18 @@ function getCanvasDimension(dimension) {
         } 
 }
 
+function resizeCanvas() {
+    const elContainer = document.querySelector('.canvas-container')
+    gElCanvas.width = elContainer.clientWidth
+}
+
+function clearCanvas() {
+    gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
+}
+
+function getCanvasCenter() {
+    return {
+        x: gElCanvas.width / 2,
+        y: gElCanvas.height / 2
+    }
+}

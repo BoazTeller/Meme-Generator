@@ -94,4 +94,18 @@
     content: "\f576";
 }
 
- 
+.fa.magnifying-glass::before {
+    content: "\f002";
+}
+
+.fa.magnifying-glass::before {
+    content: "\f002";
+}
+
+.fa.delete-left::before {
+    content: "\f55a";
+}
+
+.fa.file-import {
+    content: "\f56f";
+}

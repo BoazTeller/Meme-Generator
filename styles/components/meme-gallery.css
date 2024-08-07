@@ -1,4 +1,4 @@
-.meme-gallery-container {
+.meme-gallery-page {
     display: flex;
     justify-content: center;
 }
@@ -14,8 +14,10 @@
     overflow-y: auto;
     
     margin-block-end: 1.25em;
-    padding: 1.3em;
-    border-radius: 0.625em;
+    padding: 3.5625em;
+    padding-block-start: 0;
+    border-bottom-left-radius: 0.625em;
+    border-bottom-right-radius: 0.625em;
     background-color: #383b42;
 }
 
@@ -36,18 +38,20 @@
 }
 
 .meme-gallery::-webkit-scrollbar-track {
-    margin-top: 1.3em;
+    border-inline: 0.0625em solid #383b42;
+    margin-top: 0.1em;
     background-color: black;
     border-radius: 0.375em;
-    border-inline: 0.0625em solid #383b42;
-    cursor: grab;
 }
 
 .meme-gallery::-webkit-scrollbar-thumb{
-    border-top: 18.75em solid  #1fa993;
+    border-top: 14em solid  #1fa993;
     border-radius:  0.375em;
+    cursor: grab;
 }
 
 .meme-gallery::-webkit-scrollbar-thumb:active {
     cursor: grabbing;
-  }
+}
+
+  

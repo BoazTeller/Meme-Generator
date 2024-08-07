@@ -5,24 +5,10 @@
 
 function onInit() {
     initCanvas()
-    addListeners() 
+    addListeners()
+    initKeywordsDataList()
+    renderKeywords()
     renderGallery()
-}
-
-function resizeCanvas() {
-    const elContainer = document.querySelector('.canvas-container')
-    gElCanvas.width = elContainer.clientWidth
-}
-
-function clearCanvas() {
-    gCtx.clearRect(0, 0, gElCanvas.width, gElCanvas.height)
-}
-
-function getCanvasCenter() {
-    return {
-        x: gElCanvas.width / 2,
-        y: gElCanvas.height / 2
-    }
 }
 
 function addListeners() {
@@ -50,40 +36,7 @@ function addColorPickerListeners() {
     })
 }
 
-// function addTouchListeners() {
-//     gElCanvas.addEventListener('touchstart', onDown)
-//     gElCanvas.addEventListener('touchmove', onMove)
-//     gElCanvas.addEventListener('touchend', onUp)
-// }
-
-// function addResizeListeners() {
-//     window.addEventListener('resize', () => {
-//         resizeCanvas()
-//         renderCanvas()
-//     })
-// }
-
-// function onMouseMove(ev) {
-// 	const { offsetX, offsetY, clientX, clientY } = ev
-
-//     const { lines } = getMeme()
-
-//     const hoveredLine = lines.find(line => {
-//         const { x, y, rate } = line
-//         return offsetX >= x && offsetX <= x + BAR_WIDTH &&
-//                 offsetY >= y && offsetY <= y + rate
-//     })
-
-
-// }
-
-function onCanvasSelectLine(ev) {
-    const clickedLine = isLineClicked(ev)
-    if (!clickedLine) return
-
-    setSelectedLineIdx(clickedLine)
-    renderMeme()
-}
+/////////////////////////////////////////
 
 function onDown(ev) {
     const evPos = getEvPos(ev)
@@ -94,18 +47,6 @@ function onDown(ev) {
     setSelectedLineIdx(clickedLine)
     document.body.style.cursor = 'grab'
     renderMeme()
-}
-
-function isLineClicked(evPos) {
-    const { lines } = getMeme()
-
-    return lines.find(({ pos, txt, size: lineHeight }) => {
-        const lineWidth = gCtx.measureText(txt).width
-        return evPos.x >= pos.x - lineWidth / 2 &&
-               evPos.x <= pos.x + lineWidth / 2 &&
-               evPos.y >= pos.y - lineHeight / 2 &&
-               evPos.y <= pos.y + lineHeight / 2
-    })
 }
 
 function onMove(ev) {
@@ -128,6 +69,14 @@ function onUp() {
     document.body.style.cursor = 'auto'
 }
 
+function onCanvasSelectLine(ev) {
+    const clickedLine = isLineClicked(ev)
+    if (!clickedLine) return
 
+    setSelectedLineIdx(clickedLine)
+    renderMeme()
+}
 
-
+function triggerFileInput() {
+    document.getElementById('file-input').click();
+  }

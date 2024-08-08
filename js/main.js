@@ -23,12 +23,23 @@ function addMouseListeners() {
     gElCanvas.addEventListener('mousedown', onDown)
     gElCanvas.addEventListener('mousemove', onMove)
     gElCanvas.addEventListener('mouseup', onUp)
+    gElCanvas.addEventListener('mouseleave', onUp)
+    // document.addEventListener('contextmenu', function(event) {
+    //     event.preventDefault();
+    // })
 }
 
 function addTouchListeners() {
     gElCanvas.addEventListener('touchstart', onDown)
     gElCanvas.addEventListener('touchmove', onMove)
     gElCanvas.addEventListener('touchend', onUp)
+}
+
+function addResizeListeners() {
+    // window.addEventListener('resize', () => {
+    //     resizeCanvas()
+    //     renderMeme()
+    // })
 }
 
 // Function to trigger color input click on button click
@@ -99,4 +110,13 @@ function triggerFileInput() {
 
 function triggerOnDownloadSavedMeme() {
     document.getElementById('downloads-saved-link').click()
+}
+
+function triggerOnDownloadSavedMeme() {
+    document.getElementById('downloads-saved-link').click()
+}
+
+function onToggleMenu() {
+    console.log('toggle ham')
+    document.body.classList.toggle('menu-open')
 }

@@ -14,6 +14,7 @@ function renderMeme() {
     if (!lines.length) return
 
     renderLines(lines)
+    updateEditor()
 }
 
 function renderImg(imgSrc) {
@@ -89,6 +90,7 @@ function onSwitchLine() {
     switchLine()
     clearTextInput()
     updateTextInput()
+    renderMeme()
 }
 
 function onDeleteLine() {
@@ -212,6 +214,26 @@ function doUploadImg(imgDataUrl, onSuccess) {
     XHR.send(formData)
 }
 
+function updateEditor() {
+    const line = getSelectedLine()
+    if (!line) return
+
+    const { txt, font, strokeStyle, fillStyle } = line
+
+    updateTextInput()
+	
+    const elFontSelect = document.getElementById('font-select')
+    elFontSelect.value = font
+	
+    const fillColorPicker = document.querySelector('.fill-btn')
+    fillColorPicker.style.boxShadow = `0px 0px 5px 3px ${fillStyle}, 
+                                       inset 0px 0px 5px 3px ${fillStyle}`
+    
+    const strokeColorPicker = document.querySelector('.stroke-btn')
+    strokeColorPicker.style.boxShadow = `0px 0px 5px 3px ${strokeStyle}, 
+                                         inset 0px 0px 5px 3px ${strokeStyle}`
+}
+
 //////////////////////////////////////////////
 
 function initCanvas() {
@@ -227,9 +249,10 @@ function getCanvasDimension(dimension) {
         } 
 }
 
-function resizeCanvas() {
+function resizeCanvas(image) {
     const elContainer = document.querySelector('.canvas-container')
     gElCanvas.width = elContainer.clientWidth
+    gElCanvas.height = (image.naturalHeight / image.naturalWidth) * gElCanvas.width
 }
 
 function clearCanvas() {
@@ -266,4 +289,19 @@ function initWebShareAPI() {
             console.log(`Error sharing the meme: ${err.message}`)
         }
     })
+}
+
+//////////////////////////////////////////////
+
+// Disable page-y scroll only in gallery 
+// In future need to refactor with better solution
+function applyScrollLockForMemeGallery() {
+    const maxWidth = 780
+    const memeGallery = document.querySelector('.meme-gallery')
+
+    if (memeGallery && getComputedStyle(memeGallery).display !== 'none' && window.innerWidth <= maxWidth) {
+        document.body.classList.add('no-scroll')
+    } else {
+        document.body.classList.remove('no-scroll')
+    }
 }

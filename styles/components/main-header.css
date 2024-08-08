@@ -20,14 +20,17 @@
 
     height: 4.5625em;
     border-radius: 2.25em;
-    padding-inline: 5.125em;
+    /* padding-inline: 5.125em; original exact value*/
+    padding-inline-end: 7vw; 
+    padding-inline-start: 8%; /* adjusted for better flexibility */
     background-image: linear-gradient(-86deg, #33bd6d 0%, #0b97b9 100%);   
 }
 
 .main-nav {
     display: flex;
     justify-content: space-around;
-    gap: 3.125em;
+    /* gap: 3.125em; */
+    gap: 3vw;
 
     font-family: poppins;
     font-weight: 500;
@@ -41,6 +44,7 @@
     transition: text-shadow 0.3s ease, 
                 box-shadow 0.3s ease; 
 }
+
 .main-nav a.active {
     color: #21ac91;
     border-radius: 1.25em;

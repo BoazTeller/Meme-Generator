@@ -35,7 +35,17 @@
 /* Font Awesome */
 @font-face {
     font-family: fa;
-    src: url("../../fonts/fa/fa-solid-900.ttf");
+    src: 
+    url("../../fonts/fa/fa-solid-900.ttf");
+}
+
+@font-face {
+    font-family: fa-brands;
+    src: url("../../fonts/fa/fa-brands-400.ttf");
+}
+
+.fa-brands::before {
+    font-family: fa-brands;
 }
 
 .fa::before {
@@ -106,6 +116,44 @@
     content: "\f55a";
 }
 
-.fa.file-import {
+.fa.file-import::before {
     content: "\f56f";
 }
+
+.fa.x::before {
+    content: "\f00d"; 
+}
+
+.fa.floppy-disk::before {
+    content: "\f0c7"; 
+}
+
+.fa.download::before {
+    content: "\f019"; 
+}
+
+.fa-brands.square-facebook::before {
+    content: "\f082"; 
+}
+
+.fa.share-nodes::before {
+    content: "\f1e0"; 
+}
+
+.fa.circle-down::before {
+    content: "\f358"; 
+}
+
+.fa.trash-can::before {
+    content: "\f2ed"; 
+}
+
+.fa.pen::before {
+    content: "\f304"; 
+}
+
+.fa.pencil::before {
+    content: "\f303"; 
+}
+
+

@@ -30,12 +30,12 @@ function onShowGallery() {
 }
 
 function hideGallery() {
-    const elGallery = document.querySelector('.meme-gallery-container')
+    const elGallery = document.querySelector('.meme-gallery-page')
     elGallery.classList.add('hidden')
 }
 
 function showGallery() {
-    const elGallery = document.querySelector('.meme-gallery-container')
+    const elGallery = document.querySelector('.meme-gallery-page')
     elGallery.classList.remove('hidden')
 }
 

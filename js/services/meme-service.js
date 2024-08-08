@@ -11,24 +11,30 @@ let gKeywordFilter = null
 
 let gImgId = 1
 let gImgs = [
-        { id: gImgId++, url: 'images/1.jpg', keywords: ['funny', 'politics'] },
-        { id: gImgId++, url: 'images/2.jpg', keywords: ['cute', 'dog', 'smile'] },
-        { id: gImgId++, url: 'images/3.jpg', keywords: ['cute', 'baby', 'dog', 'animal'] },
-        { id: gImgId++, url: 'images/4.jpg', keywords: ['cute', 'cat', 'animal'] },
-        { id: gImgId++, url: 'images/5.jpg', keywords: ['funny', 'baby', 'smile'] },
-        { id: gImgId++, url: 'images/6.jpg', keywords: ['funny', 'baby'] },
-        { id: gImgId++, url: 'images/7.jpg', keywords: ['funny', 'baby'] },
-        { id: gImgId++, url: 'images/8.jpg', keywords: ['funny'] },
-        { id: gImgId++, url: 'images/9.jpg', keywords: ['smile', 'funny'] },
-        { id: gImgId++, url: 'images/10.jpg', keywords: ['funny', 'politics'] },
-        { id: gImgId++, url: 'images/11.jpg', keywords: ['funny'] },
-        { id: gImgId++, url: 'images/12.jpg', keywords: ['funny'] },
-        { id: gImgId++, url: 'images/13.jpg', keywords: ['funny', 'smile'] },
-        { id: gImgId++, url: 'images/14.jpg', keywords: ['funny'] },
-        { id: gImgId++, url: 'images/15.jpg', keywords: ['funny', 'politics'] },
-        { id: gImgId++, url: 'images/16.jpg', keywords: ['funny', 'smile'] },
-        { id: gImgId++, url: 'images/17.jpg', keywords: ['politics'] },
-        { id: gImgId++, url: 'images/18.jpg', keywords: ['funny', 'smile'] }
+    { id: gImgId++, url: 'images/1.jpg', keywords: ['funny', 'politics'] },
+    { id: gImgId++, url: 'images/2.jpg', keywords: ['cute', 'dog', 'smile'] },
+    { id: gImgId++, url: 'images/3.jpg', keywords: ['cute', 'baby', 'dog', 'animal'] },
+    { id: gImgId++, url: 'images/4.jpg', keywords: ['cute', 'cat', 'animal'] },
+    { id: gImgId++, url: 'images/5.jpg', keywords: ['funny', 'baby', 'smile'] },
+    { id: gImgId++, url: 'images/6.jpg', keywords: ['funny', 'baby'] },
+    { id: gImgId++, url: 'images/7.jpg', keywords: ['funny', 'baby'] },
+    { id: gImgId++, url: 'images/8.jpg', keywords: ['funny'] },
+    { id: gImgId++, url: 'images/9.jpg', keywords: ['smile', 'funny'] },
+    { id: gImgId++, url: 'images/10.jpg', keywords: ['funny', 'politics'] },
+    { id: gImgId++, url: 'images/11.jpg', keywords: ['funny'] },
+    { id: gImgId++, url: 'images/12.jpg', keywords: ['funny'] },
+    { id: gImgId++, url: 'images/13.jpg', keywords: ['funny', 'smile'] },
+    { id: gImgId++, url: 'images/14.jpg', keywords: ['funny'] },
+    { id: gImgId++, url: 'images/15.jpg', keywords: ['funny', 'politics'] },
+    { id: gImgId++, url: 'images/16.jpg', keywords: ['funny', 'smile'] },
+    { id: gImgId++, url: 'images/17.jpg', keywords: ['politics'] },
+    { id: gImgId++, url: 'images/18.jpg', keywords: ['funny', 'smile'] },
+    { id: gImgId++, url: 'images/19.jpg', keywords: ['cute', 'smile'] },
+    { id: gImgId++, url: 'images/20.jpg', keywords: ['funny'] },
+    { id: gImgId++, url: 'images/21.jpg', keywords: ['men', 'baby'] },
+    { id: gImgId++, url: 'images/22.jpg', keywords: ['politics'] },
+    { id: gImgId++, url: 'images/23.jpg', keywords: ['dog','animal','cute'] },
+    { id: gImgId++, url: 'images/24.jpg', keywords: ['funny'] }
 ]
 
 let gKeywordsSearchCount
@@ -52,10 +58,10 @@ function _createLine(txt = 'Enter text') {
     return {
         id: makeId(),
         txt,
-        font: 'Arial',
-        size: 20,
-        strokeStyle: '',
-        fillStyle: 'red',
+        font: 'impact',
+        size: 24,
+        strokeStyle: 'black',
+        fillStyle: 'white',
         isDrag: false,
         pos: {
             x: 250,
@@ -188,7 +194,7 @@ function increaseFontSize() {
     
     line.size += 2
 }
-
+ 
 function decreaseFontSize() {
     const line = getSelectedLine()    
     line.size = Math.max(2, line.size - 2) 

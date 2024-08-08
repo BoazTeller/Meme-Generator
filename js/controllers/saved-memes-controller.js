@@ -2,10 +2,12 @@
 
 function renderSavedMemes() {
     const elSavedMemes = document.querySelector('.saved-memes')
+    const elSavedH2 = document.querySelector('.no-saved-msg')
 
     const savedMemes = getSavedMemes()
     if (!savedMemes || !savedMemes.length) {
         elSavedMemes.style.display = 'none'
+        elSavedH2.classList.remove('hidden')
         return
     }
 
@@ -16,9 +18,12 @@ function renderSavedMemes() {
                 <img src="${meme.dataURL}" class="saved-meme-image" onclick="onEditSavedMeme('${meme.id}')">
                 
                 <div class="meme-controls flex">
-                    <button class="download-saved-btn" 
+                    <button class="edit-saved-btn fa pencil" 
+                            onclick="onEditSavedMeme('${meme.id}')">
+                    </button>
+
+                    <button class="download-saved-btn fa circle-down" 
                             onclick="triggerOnDownloadSavedMeme()">
-                            Download
                     </button>
                     <a href="#" class="hidden"
                                 id="downloads-saved-link" 
@@ -26,9 +31,8 @@ function renderSavedMemes() {
                                 download="my-meme.jpg">
                     </a>
          
-                    <button class="delete-saved-btn" 
+                    <button class="delete-saved-btn fa trash-can" 
                             onclick="onDeleteSavedMeme('${meme.id}')">
-                            Delete
                     </button>
                 </div>
             </div>`

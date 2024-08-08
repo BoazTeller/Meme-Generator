@@ -40,7 +40,7 @@ function shuffleItems(items) {
         const rndIdx = Math.floor(Math.random() * (i + 1));
         [items[i], items[rndIdx]] = [items[rndIdx], items[i]]; 
     }
-    return items;
+    return items
 }
 
 function getRandomIntInclusive(min, max) {

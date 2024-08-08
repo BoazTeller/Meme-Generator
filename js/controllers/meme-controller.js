@@ -7,9 +7,12 @@ let gCtx
 let gDragOffset = null
 
 function renderMeme() {
-    const { selectedImgId: imgId, lines } = getMeme()
-    const { url: imgSrc } = getImdById(imgId)
+    const { selectedImgId, lines } = getMeme()
+    const { url: imgSrc } = getImdById(selectedImgId)
+    
     renderImg(imgSrc)
+    if (!lines.length) return
+
     renderLines(lines)
 }
 
@@ -107,7 +110,7 @@ function onUpdateFontSize(action) {
         decreaseFontSize()
     } 
 
-    renderMeme();
+    renderMeme()
 }
 
 function clearTextInput() {
@@ -159,20 +162,25 @@ function onSetFontFamily(font) {
 }
 
 function onSaveMeme() {
-    saveMeme()
+    const dataURL = gElCanvas.toDataURL()
+    saveMeme(dataURL)
 }
 
 function onDownloadMeme(elLink) {
-    clearSelectedLine()
-    renderMeme()
+    onClearSelectedLine()
 
     const dataURL = gElCanvas.toDataURL()
     elLink.href = dataURL
 }
 
-function onShareOnFacebook() {
+function onClearSelectedLine() {
     clearSelectedLine()
-    
+    renderMeme()
+}
+
+function onShareOnFacebook() {
+    onClearSelectedLine()
+
     const imgDataUrl = gElCanvas.toDataURL('image/jpeg')
 
     function onSuccess(uploadedImgUrl) {
@@ -232,4 +240,29 @@ function getCanvasCenter() {
         x: gElCanvas.width / 2,
         y: gElCanvas.height / 2
     }
+}
+
+//////////////////////////////////////////////
+
+function initWebShareAPI() {
+    const shareButton = document.querySelector(".share-btn")
+
+    shareButton.addEventListener("click", async () => {
+        clearSelectedLine()
+        const imgDataUrl = gElCanvas.toDataURL('image/jpeg')
+        
+        try {
+            const blob = await (await fetch(imgDataUrl)).blob()
+            const file = new File([blob], 'my-meme.jpg', { type: 'image/jpeg' })
+
+            await navigator.share({
+                files: [file],
+                title: 'Check out my meme!',
+                text: 'Created with MemeMania.'
+            })
+            console.log('Meme shared successfully!')
+        } catch (err) {
+            console.log(`Error sharing the meme: ${err.message}`)
+        }
+    })
 }

@@ -43,6 +43,7 @@ function _createMeme(imgId) {
         id: makeId(),
         selectedImgId: imgId,
         selectedLineIdx: 0,
+        dataURL: null,
         lines: [_createLine()]
     }
 }
@@ -124,7 +125,7 @@ function _filterImgs(keyword) {
 
 function getRandomImg() {
     const imgs = getImgs()
-    const rndIdx = getRandomIntInclusive(0, imgs.length - 1);
+    const rndIdx = getRandomIntInclusive(0, imgs.length - 1)
     return imgs[rndIdx]
 }
 
@@ -290,13 +291,15 @@ function _createImg(url) {
     }
 }
 
-function saveMeme() {
-    // const existingMeme = gSavedMemes.find(savedMeme => savedMeme.id === gMeme.id)
-    
-    // if (existingMeme) existingMeme.dataURL = getDataURL()
-    // else 
-    
-    gSavedMemes.push(structuredClone(gMeme))
+function saveMeme(dataURL) {
+    const existingMeme = gSavedMemes.find(savedMeme => savedMeme.id === gMeme.id)
+
+    if (existingMeme) {
+        existingMeme.dataURL = dataURL
+    } else {
+        gMeme.dataURL = dataURL
+        gSavedMemes.push(structuredClone(gMeme))
+    }
     
     _saveMemes()
 }
@@ -314,7 +317,7 @@ function deleteSavedMeme(memeId) {
 }
 
 function getSavedMemes() {
-    return gSavedMemes;
+    return gSavedMemes
     // return loadFromStorageStorage(SAVED_MEMES_KEY)
 }
 
@@ -325,4 +328,28 @@ function setSavedMeme(meme) {
 function clearSelectedLine() {
     const meme = getMeme()
     meme.selectedLineIdx = null
+}
+
+function getSavedMemeById(memeId) {
+    const meme = gSavedMemes.find(savedMeme => savedMeme.id === memeId)
+    return meme 
+}
+
+function getSavedMemeByIdx(memeId) {
+    const memeIdx = gSavedMemes.findIndex(savedMeme => savedMeme.id === memeId)
+    if (memeIdx === -1) return
+
+    return memeIdx 
+}
+
+function editSavedMeme(memeId) {
+    const savedMeme = getSavedMemeById(memeId)
+    gMeme = savedMeme
+}
+
+function deleteSavedMeme(memeId) {
+    const memeIdx = getSavedMemeById(memeId)
+    gSavedMemes.splice(memeIdx, 1)
+
+    _saveMemes()
 }

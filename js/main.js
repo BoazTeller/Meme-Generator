@@ -8,6 +8,7 @@ function onInit() {
     addListeners()
     initKeywordsDataList()
     renderKeywords()
+    initWebShareAPI()
     renderGallery()
 }
 
@@ -93,5 +94,5 @@ function onCanvasSelectLine(ev) {
 }
 
 function triggerFileInput() {
-    document.getElementById('file-input').click();
-  }
+    document.getElementById('file-input').click()
+}

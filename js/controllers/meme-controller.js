@@ -162,6 +162,7 @@ function onSetFontFamily(font) {
 }
 
 function onSaveMeme() {
+    onClearSelectedLine()
     const dataURL = gElCanvas.toDataURL()
     saveMeme(dataURL)
 }

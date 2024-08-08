@@ -309,10 +309,16 @@ function _saveMemes() {
 }
 
 function deleteSavedMeme(memeId) {
+    console.log('????????????')
+    console.log('delete meme id', memeId)
     const memeIdx = gSavedMemes.findIndex(({ id }) => id === memeId)
+    console.log('memeIdx', memeIdx)
     if (memeIdx === -1) return
+    console.log('found index', memeIdx)
 
+    console.log('before splice:', gSavedMemes.slice())
     gSavedMemes.splice(memeIdx, 1)
+    console.log('after splice:', gSavedMemes.slice())
     _saveMemes()
 }
 

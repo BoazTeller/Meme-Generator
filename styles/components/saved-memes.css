@@ -1,0 +1,30 @@
+.saved-meme-container {
+    position: relative;
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* height: 100%; */
+    width: max-content;
+}
+
+
+.saved-memes .meme-controls {
+    position: absolute;
+    gap: 1em;
+    bottom: 10%;
+    left: 25%;
+}
+
+.saved-memes .meme-controls button {
+    width: 120px ;
+    min-width: 92px;
+    height: 36px;
+    border-radius: 18px;
+    filter: drop-shadow(0px 3px 3.5px rgba(0,0,0,0.15));
+    background-image: linear-gradient(-86deg, #33bd6d 0%, #0b97b9 100%);
+
+    font-size: 18px;
+    color: #fefefe;
+    font-weight: 300;
+    font-family: poppins-light;
+    text-align: center;
+}

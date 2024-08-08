@@ -96,3 +96,7 @@ function onCanvasSelectLine(ev) {
 function triggerFileInput() {
     document.getElementById('file-input').click()
 }
+
+function triggerOnDownloadSavedMeme() {
+    document.getElementById('downloads-saved-link').click()
+}

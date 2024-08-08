@@ -1,8 +1,11 @@
 'use strict'
 
 function renderSavedMemes() {
+    const elSavedMemes = document.querySelector('.saved-memes')
+
     const savedMemes = getSavedMemes()
     if (!savedMemes || !savedMemes.length) {
+        elSavedMemes.style.display = 'none'
         return
     }
 
@@ -12,20 +15,25 @@ function renderSavedMemes() {
             <div class="saved-meme-container">
                 <img src="${meme.dataURL}" class="saved-meme-image" onclick="onEditSavedMeme('${meme.id}')">
                 
-                <div class="meme-controls">
-                    <a href="#" class="fa-solid fa-download" 
+                <div class="meme-controls flex">
+                    <button class="download-saved-btn fa-solid fa-download" 
+                            onclick="triggerOnDownloadSavedMeme()">
+                            Download
+                    </button>
+                    <a href="#" class="hidden"
+                                id="downloads-saved-link" 
                                 onclick="onDownloadSavedMeme(this, '${meme.id}')" 
                                 download="my-meme.jpg">
                     </a>
          
-                    <button class="fa-solid fa-trash" 
+                    <button class="delete-saved-btn fa-solid fa-trash" 
                             onclick="onDeleteSavedMeme('${meme.id}')">
+                            Delete
                     </button>
                 </div>
             </div>`
     })
 
-    const elSavedMemes = document.querySelector('.saved-memes')
     elSavedMemes.style.display = 'grid'
     elSavedMemes.innerHTML = strHTMLs
 }
@@ -41,6 +49,7 @@ function onEditSavedMeme(memeId) {
 
 function onDeleteSavedMeme(memeId) {
     deleteSavedMeme(memeId)
+
     renderSavedMemes()
 }
 

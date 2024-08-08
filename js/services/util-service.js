@@ -12,10 +12,6 @@ function makeId(length = 8) {
     return result
 }
 
-function getEl(elClass) {
-    return document.querySelector('${elClass}')
-}
-
 function getEvPos(ev) {
     let pos = {
         x: ev.offsetX,

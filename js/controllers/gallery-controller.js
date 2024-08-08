@@ -22,7 +22,7 @@ function onImgSelect(imgId) {
     renderMeme()
 }
 
-function onShowGallery(elLink) {
+function onShowGallery() {
     hideEditor()
     hideSaved()
     showGallery()
@@ -73,15 +73,12 @@ function clearAllActiveHeaderNavs() {
 }
 
 function onDisplayRandomMeme() {
+    hideGallery()
+    hideSaved()
+
     const { id: rndImgId } = getRandomImg()
     onImgSelect(rndImgId)
 }
-
-// onFilterByKeyword(this.value)
-
-// function onFilterByKeyword(keyword) {
- 
-// }
 
 function onSearchByKeyword(keyword) {
     updateMemeSearch(keyword)

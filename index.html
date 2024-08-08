@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="styles/main.css">
     <title>MemeMania</title>
     <link rel="icon" type="image/x-icon" href="/images/favicon-32x32.png">
+    <script src="https://kit.fontawesome.com/cea3baaf08.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&family=Roboto:wght@400;700&family=Montserrat:wght@400;700&family=Raleway:wght@400;700&family=Fjalla+One&family=Lobster&family=Bebas+Neue&family=Anton&family=Oswald&display=swap">
-    <link rel="stylesheet" href="/fonts/fa-6.6.0/css/all.css">
 </head>
 
 <body onload="onInit()" class="main-layout">
@@ -34,102 +34,106 @@
         <div class="spacer"></div>
     </header>
 
-    <section class="meme-gallery-page">
-        <div class="meme-gallery-container">
-            <section class="meme-search flex">
-                <div class="meme-search-icon-container flex">
-                    <input type="text" class="meme-search-input" list="meme-keywords" name="meme-search-input" placeholder="Search" oninput="onSetFilter(this.value)">    
-                    <datalist id="meme-keywords"></datalist>
-                    <button class="btn-clear-search fa delete-left" onclick="onClearSearch()"></button>
-                    <i class="fa-solid fa-magnifying-glass"></i>
+    <main class="main-content flex column">
+        <section class="meme-gallery-page">
+            <div class="meme-gallery-container">
+                <section class="meme-search flex">
+                    <div class="meme-search-icon-container flex">
+                        <input type="text" class="meme-search-input" list="meme-keywords" name="meme-search-input" placeholder="Search" oninput="onSetFilter(this.value)">    
+                        <datalist id="meme-keywords"></datalist>
+                        <button class="btn-clear-search fa delete-left" onclick="onClearSearch()"></button>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <ul class="keywords-search-list flex align-center space-evenly clean-list"></ul>
+                    <!-- <label for="file-input" class="btn-img-import">Upload</label> -->
+                    <button class="btn-img-import fa.file-import" onclick="triggerFileInput()">Upload</button>
+                    <input type="file" id="file-input" class="file-input hidden" name="file-input" onchange="onImgInput(event)" accept="image/*"/>
+                </section> 
+                <section class="meme-gallery"></section>
+            </div>
+        </section>
+
+        <div class="meme-editor-container flex hidden">
+            <div class="canvas-container">
+                <canvas width="500" height="500" onclick="onCanvasSelectLine(event)"></canvas>
+            </div>
+
+            <div class="editor align-center">
+                <div class="editor-internal">
+                    <input type="text" id="text-input" class="text-input" autocomplete="off" placeholder="Enter text" oninput="onTextInput(this.value)"> 
+
+                    <div class="line-controls flex">
+                        <button onclick="onSwitchLine()" class="btn-switch-line fa up down"></button>
+                        <button onclick="onAddLine()" class="btn-add-line fa plus"></button>    
+                        <button onclick="onDeleteLine()" class="btn-delete-line fa trash"></button>
+                    </div>
+
+                    <div class="text-controls">
+                        <button onclick="onUpdateFontSize('increase')" class="fa font"><span class="plus">+</span></button>
+                        <button onclick="onUpdateFontSize('decrease')" class="fa font"><span class="minus">-</span></button>
+                        <button onclick="onSetTextAlignment('left')" class="fa align-left"></button>
+                        <button onclick="onSetTextAlignment('center')" class="fa align-center"></button>
+                        <button onclick="onSetTextAlignment('right')" class="fa align-right"></button>
+                        
+                        <select id="font-select" class="fa caret-down" oninput="onSetFontFamily(this.value)">
+                            <option value="poppins">Poppins</option>
+                            <option value="impact">Impact</option>
+                            <option value="comic-sans">Comic Sans MS</option>
+                            <option value="bebas-neue">Bebas Neue</option>
+                            <option value="lobster">Lobster</option>
+                            <option value="anton">Anton</option>
+                            <option value="oswald">Oswald</option>
+                            <option value="roboto">Roboto</option>
+                            <option value="montserrat">Montserrat</option>
+                            <option value="fjalla-one">Fjalla One</option>
+                            <option value="raleway">Raleway</option>
+                        </select>
+                        <button class="btn-color-picker fa brush">
+                            <input type="color" id="stroke-color" class="" oninput="onSetStrokeStyle(this.value)">
+                        </button>
+                        <button class="btn-color-picker fa fill-drip">
+                            <input type="color" id="fill-color" class="" oninput="onSetFillStyle(this.value)">
+                        </button>
+                    </div>
+
+                    <div class="emoji-container flex">
+                        <button onclick="onAddLine(this.textContent)">😂</button>
+                        <button onclick="onAddLine(this.textContent)">❤️</button>
+                        <button onclick="onAddLine(this.textContent)">🔥</button>
+                        <button onclick="onAddLine(this.textContent)">😭</button>
+                        <button onclick="onAddLine(this.textContent)">😎</button>
+                        <button onclick="onAddLine(this.textContent)">🤩</button>
+                        <button onclick="onAddLine(this.textContent)">👍</button>
+                        <button onclick="onAddLine(this.textContent)">👑</button>
+                        <button onclick="onAddLine(this.textContent)">😜</button>
+                        <button onclick="onAddLine(this.textContent)">🎉</button>
+                        <button onclick="onAddLine(this.textContent)">🦄</button>
+                        <button onclick="onAddLine(this.textContent)">😊</button>
+                        <button onclick="onAddLine(this.textContent)">✨</button>
+                        <button onclick="onAddLine(this.textContent)">🚀</button>
+                        <button onclick="onAddLine(this.textContent)">🙌</button>
+                        <button onclick="onAddLine(this.textContent)">💥</button>
+                        <button onclick="onAddLine(this.textContent)">🍕</button>
+                        <button onclick="onAddLine(this.textContent)">🎈</button>
+                        <button onclick="onAddLine(this.textContent)">👀</button>
+                        <button onclick="onAddLine(this.textContent)">💯</button>                
+                    </div>
+
+                    <button class="save-btn" onclick="onSaveMeme()">SAVE</button>
+                    <a href="#" class="fa download" onclick="onDownloadMeme(this)" download="my-meme.jpg">Download</a>  
+                    <button class="brands facebook" onclick="onShareOnFacebook()">Share on Facebook</button>
+                    <button class="share-btn">Share</button>
                 </div>
-                <ul class="keywords-search-list flex align-center space-evenly clean-list"></ul>
-                <!-- <label for="file-input" class="btn-img-import">Upload</label> -->
-                <button class="btn-img-import fa.file-import" onclick="triggerFileInput()">Upload</button>
-                <input type="file" id="file-input" class="file-input hidden" name="file-input" onchange="onImgInput(event)" accept="image/*"/>
-            </section> 
-            <section class="meme-gallery"></section>
-        </div>
-    </section>
-
-    <div class="meme-editor-container flex hidden">
-        <div class="canvas-container">
-            <canvas width="500" height="500" onclick="onCanvasSelectLine(event)"></canvas>
-        </div>
-
-        <div class="editor align-center">
-            <input type="text" id="text-input" class="text-input" autocomplete="off" placeholder="Enter text" oninput="onTextInput(this.value)"> 
-
-            <div class="line-controls flex">
-                <button onclick="onSwitchLine()" class="btn-switch-line fa up down"></button>
-                <button onclick="onAddLine()" class="btn-add-line fa plus"></button>    
-                <button onclick="onDeleteLine()" class="btn-delete-line fa trash"></button>
             </div>
-
-            <div class="text-controls">
-                <button onclick="onUpdateFontSize('increase')" class="fa font"><span class="plus">+</span></button>
-                <button onclick="onUpdateFontSize('decrease')" class="fa font"><span class="minus">-</span></button>
-                <button onclick="onSetTextAlignment('left')" class="fa align-left"></button>
-                <button onclick="onSetTextAlignment('center')" class="fa align-center"></button>
-                <button onclick="onSetTextAlignment('right')" class="fa align-right"></button>
-                
-                <select id="font-select" class="fa caret-down" oninput="onSetFontFamily(this.value)">
-                    <option value="poppins">Poppins</option>
-                    <option value="impact">Impact</option>
-                    <option value="comic-sans">Comic Sans MS</option>
-                    <option value="bebas-neue">Bebas Neue</option>
-                    <option value="lobster">Lobster</option>
-                    <option value="anton">Anton</option>
-                    <option value="oswald">Oswald</option>
-                    <option value="roboto">Roboto</option>
-                    <option value="montserrat">Montserrat</option>
-                    <option value="fjalla-one">Fjalla One</option>
-                    <option value="raleway">Raleway</option>
-                </select>
-                <button class="btn-color-picker fa brush">
-                    <input type="color" id="stroke-color" class="" oninput="onSetStrokeStyle(this.value)">
-                </button>
-                <button class="btn-color-picker fa fill-drip">
-                    <input type="color" id="fill-color" class="" oninput="onSetFillStyle(this.value)">
-                </button>
-            </div>
-
-            <div class="emoji-container flex">
-                <button onclick="onAddLine(this.textContent)">😂</button>
-                <button onclick="onAddLine(this.textContent)">❤️</button>
-                <button onclick="onAddLine(this.textContent)">🔥</button>
-                <button onclick="onAddLine(this.textContent)">😭</button>
-                <button onclick="onAddLine(this.textContent)">😎</button>
-                <button onclick="onAddLine(this.textContent)">🤩</button>
-                <button onclick="onAddLine(this.textContent)">👍</button>
-                <button onclick="onAddLine(this.textContent)">👑</button>
-                <button onclick="onAddLine(this.textContent)">😜</button>
-                <button onclick="onAddLine(this.textContent)">🎉</button>
-                <button onclick="onAddLine(this.textContent)">🦄</button>
-                <button onclick="onAddLine(this.textContent)">😊</button>
-                <button onclick="onAddLine(this.textContent)">✨</button>
-                <button onclick="onAddLine(this.textContent)">🚀</button>
-                <button onclick="onAddLine(this.textContent)">🙌</button>
-                <button onclick="onAddLine(this.textContent)">💥</button>
-                <button onclick="onAddLine(this.textContent)">🍕</button>
-                <button onclick="onAddLine(this.textContent)">🎈</button>
-                <button onclick="onAddLine(this.textContent)">👀</button>
-                <button onclick="onAddLine(this.textContent)">💯</button>                
-            </div>
-
-            <button class="save-btn" onclick="onSaveMeme()">SAVE</button>
-            <a href="#" class="fa download" onclick="onDownloadMeme(this)" download="my-meme.jpg">Download</a>  
-            <button class="brands facebook" onclick="onShareOnFacebook()">Share on Facebook</button>
-            <button class="share-btn">Share</button>
         </div>
-    </div>
-    
-    <section class="saved-memes-section hidden main-layout">
-        <header class="saved-memes-header">
-          <h1 class="saved-title">Saved Memes</h1>
-        </header>
-        <div class="saved-memes"></div>
-    </section>
+        
+        <section class="saved-memes-section hidden main-layout">
+            <header class="saved-memes-header">
+            <h1 class="saved-title">Saved Memes</h1>
+            </header>
+            <div class="saved-memes"></div>
+        </section>
+    </main>
 
     <footer class="main-footer full">
         <div class="logo">MemeMania<span>©</span></div>

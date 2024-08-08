@@ -108,8 +108,8 @@ function triggerFileInput() {
     document.getElementById('file-input').click()
 }
 
-function triggerOnDownloadSavedMeme() {
-    document.getElementById('downloads-saved-link').click()
+function triggerOnDownloadMeme() {
+    document.getElementById('downloads-link').click()
 }
 
 function triggerOnDownloadSavedMeme() {
@@ -117,6 +117,5 @@ function triggerOnDownloadSavedMeme() {
 }
 
 function onToggleMenu() {
-    console.log('toggle ham')
     document.body.classList.toggle('menu-open')
 }

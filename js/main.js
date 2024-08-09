@@ -119,3 +119,20 @@ function triggerOnDownloadSavedMeme() {
 function onToggleMenu() {
     document.body.classList.toggle('menu-open')
 }
+
+window.addEventListener('resize', function() {
+    const memeGallery = document.querySelector('.meme-gallery');
+    if (window.innerWidth < 1080 && window.getComputedStyle(memeGallery).display === 'grid') {
+        document.body.style.overflow = 'hidden';
+    } else {
+        document.body.style.overflow = ''
+    }
+})
+
+// Initial check in case the page loads below 800px width
+if (window.innerWidth < 1080) {
+    const memeGallery = document.querySelector('.meme-gallery');
+    if (memeGallery && window.getComputedStyle(memeGallery).display === 'grid') {
+        document.body.style.overflow = 'hidden';
+    }
+}

@@ -54,16 +54,16 @@ function _createMeme(imgId) {
     }
 }
 
-function _createLine(txt = 'Enter text') {
+function _createLine(txt = getTrans('textInput')) {
     return {
         id: makeId(),
         txt,
         font: 'impact',
-        size: 24,
+        size: 30,
         strokeStyle: 'black',
         fillStyle: 'white',
-        isDrag: false,
         pos: {
+            isDrag: false,
             x: 250,
             y: 30
         }
@@ -87,7 +87,7 @@ function _generateKeywords() {
         
         keywords.forEach((keyword) => {
             if (!acc[keyword]) {
-                acc[keyword] = getRandomIntInclusive(1, 30)
+                acc[keyword] = getRandomIntInclusive(10, 30)
             }
         })
 

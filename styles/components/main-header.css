@@ -32,7 +32,7 @@
     /* gap: 3.125em; */
     gap: 3vw;
 
-    font-family: poppins;
+    font-family: poppins, sans-serif;
     font-weight: 500;
     font-size: 1.3125em;
 }
@@ -56,4 +56,28 @@
     color: #f5f5f5; 
     text-shadow: 0 0 0.1875em rgba(255, 255, 255, 0.5); 
     box-shadow: 0 0 0.1875em rgba(255, 255, 255, 0.5); 
+}
+
+.main-header .lang-select {
+    height: 100%;
+    text-align: center;
+
+    font-family: poppins-light, sans-serif;  
+    font-size: 1em;
+    color: #fff;
+
+    border-width: 1px;
+    border-style: dotted;
+    border-color: white;
+    border-top: none;
+    border-bottom: none;
+    background: transparent;
+}
+
+.main-header .lang-select option {
+    background: #33bd6d;
+}
+
+body.rtl .lang-select option {
+    background: #0b97b9;
 }

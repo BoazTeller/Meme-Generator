@@ -12,14 +12,14 @@ function renderSavedMemes() {
     }
 
     let strHTMLs = ''
-    savedMemes.forEach(meme => {
+    savedMemes.forEach(savedMeme => {
         strHTMLs += `
             <div class="saved-meme-container">
-                <img src="${meme.dataURL}" class="saved-meme-image" onclick="onEditSavedMeme('${meme.id}')">
+                <img src="${savedMeme.dataURL}" class="saved-meme-image" onclick="onEditSavedMeme('${savedMeme.id}')">
                 
                 <div class="meme-controls flex">
                     <button class="edit-saved-btn fa pencil" 
-                            onclick="onEditSavedMeme('${meme.id}')">
+                            onclick="onEditSavedMeme('${savedMeme.id}')">
                     </button>
 
                     <button class="download-saved-btn fa circle-down" 
@@ -27,12 +27,12 @@ function renderSavedMemes() {
                     </button>
                     <a href="#" class="hidden"
                                 id="downloads-saved-link" 
-                                onclick="onDownloadSavedMeme(this, '${meme.id}')" 
+                                onclick="onDownloadSavedMeme(this, '${savedMeme.id}')" 
                                 download="my-meme.jpg">
                     </a>
          
                     <button class="delete-saved-btn fa trash-can" 
-                            onclick="onDeleteSavedMeme('${meme.id}')">
+                            onclick="onDeleteSavedMeme('${savedMeme.id}')">
                     </button>
                 </div>
             </div>`

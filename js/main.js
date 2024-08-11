@@ -6,7 +6,7 @@
 function onInit() {
     initCanvas()
     addListeners()
-    initKeywordsDataList()
+    // initKeywordsDataList()
     renderKeywords()
     initWebShareAPI()
     renderGallery()

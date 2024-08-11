@@ -6,24 +6,46 @@ let gElCanvas
 let gCtx
 let gDragOffset = null
 
+
 function renderMeme() {
     const { selectedImgId, lines } = getMeme()
     const { url: imgSrc } = getImdById(selectedImgId)
-    
-    renderImg(imgSrc)
-    if (!lines.length) return
 
-    renderLines(lines)
-    updateEditor()
-}
-
-function renderImg(imgSrc) {
     const elImg = new Image()
     elImg.src = imgSrc
 
+    elImg.onload = () => {
+        renderImg(elImg)
+        if (!lines.length) return
+        
+        renderLines(lines)
+        updateEditor()
+    }
+}
+
+function renderImg(elImg) {
     gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
 }
+
+// function renderMeme() {
+//     const { selectedImgId, lines } = getMeme()
+//     const { url: imgSrc } = getImdById(selectedImgId)
+    
+//     renderImg(imgSrc)
+//     if (!lines.length) return
+
+//     renderLines(lines)
+//     updateEditor()
+// }
+
+// function renderImg(imgSrc) {
+//     const elImg = new Image()
+//     elImg.src = imgSrc
+
+//     gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
+//     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
+// }
 
 ///////////////////////////////////////////////////
 
@@ -128,7 +150,8 @@ function updateTextInput() {
     else txt = line.txt
     
     const elTextInput = document.querySelector('.text-input')
-    const placeholderText = elTextInput.placeholder
+    const elTextTransData = elTextInput.dataset.trans
+    const placeholderText = getTrans(elTextTransData)
 
     if (txt === placeholderText) {
         elTextInput.value = ''
@@ -272,7 +295,7 @@ function initWebShareAPI() {
     const shareButton = document.querySelector(".share-btn")
 
     shareButton.addEventListener("click", async () => {
-        clearSelectedLine()
+        onClearSelectedLine()
         const imgDataUrl = gElCanvas.toDataURL('image/jpeg')
         
         try {

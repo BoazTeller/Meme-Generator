@@ -12,42 +12,48 @@
 </head>
 
 <body onload="onInit()" class="main-layout menu-open">
-
     <div class="main-screen hidden" onclick="onToggleMenu()"></div>
 
     <header class="main-header-container">
         <div class="spacer"></div>
+
         <header class="main-header">
-            <div class="logo">MemeMania<span>©</span></div>
+            <div class="logo" data-trans="appTitle">MemeMania<span>©</span></div>
             <nav class="main-nav-container">
                 <ul class="main-nav clean-list">
                     <li>
-                        <a class="active" onclick="onUpdateActiveNav(this), onShowGallery()" href="#">Gallery</a>
+                        <a class="active" onclick="onUpdateActiveNav(this), onShowGallery()" data-trans="galleryLink" href="#">Gallery</a>
                     </li>
                     <li>
-                        <a onclick="onUpdateActiveNav(this), onDisplaySaved()" href="#">Saved</a>
+                        <a onclick="onUpdateActiveNav(this), onDisplaySaved()" data-trans="savedLink" href="#">Saved</a>
                     </li>
                     <li>
-                        <a onclick="onUpdateActiveNav(this), onDisplayRandomMeme()" href="#">Randomize</a>
+                        <a onclick="onUpdateActiveNav(this), onDisplayRandomMeme()" data-trans="randomizeLink" href="#">Randomize</a>
                     </li>
                 </ul>
             </nav>
+            <select class="lang-select" onchange="onSetLang(this.value)">
+                <option value="en">English</option>
+                <option value="he">עברית</option>
+            </select>
             <button class="toggle-menu-btn hidden" onclick="onToggleMenu()" type="button">☰</button>
         </header>
+
         <div class="spacer"></div>
     </header>
 
     <main class="main-content">
+
         <section class="meme-gallery-page main-layout gallery">
             <section class="meme-search flex">
                 <div class="meme-search-icon-container flex">
-                    <input type="text" class="meme-search-input" list="meme-keywords" name="meme-search-input" placeholder="Search" oninput="onSetFilter(this.value)">    
+                    <input type="text" class="meme-search-input" list="meme-keywords" name="meme-search-input" placeholder="Search" data-trans="searchInput" oninput="onSetFilter(this.value)">    
                     <datalist id="meme-keywords"></datalist>
-                    <button class="search-btn btn-clear-search fa delete-left" onclick="onClearSearch()"></button>
+                    <button class="btn-clear-search search-btn fa delete-left" onclick="onClearSearch()"></button>
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
                 <ul class="keywords-search-list flex align-center space-evenly clean-list"></ul>
-                <button class="btn-img-import fa.file-import search-btn" onclick="triggerFileInput()">Upload</button>
+                <button class="btn-img-import fa.file-import search-btn" data-trans="uploadBtn" onclick="triggerFileInput()">Upload</button>
                 <input type="file" id="file-input" class="file-input hidden" name="file-input" onchange="onImgInput(event)" accept="image/*"/>
             </section> 
 
@@ -61,7 +67,7 @@
         
             <div class="editor flex column align-center">
                 <div class="text-input-area flex align-center">
-                    <input type="text" id="text-input" class="text-input" autocomplete="off" placeholder="Enter text" oninput="onTextInput(this.value)"> 
+                    <input type="text" id="text-input" class="text-input" autocomplete="off" placeholder="Enter text" data-trans="textInput" oninput="onTextInput(this.value)"> 
                     <button class="btn-clear-line fa x" onclick="onClearInput()"></button>
                 </div>
 
@@ -135,7 +141,7 @@
         <section class="saved-memes-section hidden main-layout hidden">
             <header class="saved-memes-header">
                 <!-- <h1 class="saved-title">Saved Memes</h1> -->
-                <h1 class="no-saved-msg hidden">No saved memes found.</h1>
+                <h1 class="no-saved-msg hidden" data-trans="savedSubTitle">No saved memes found.</h1>
             </header>
             <div class="saved-memes"></div>
         </section>
@@ -143,15 +149,16 @@
     </main>
 
     <footer class="main-footer full">
-        <div class="logo">MemeMania<span>©</span></div>
+        <div class="logo" data-trans="appTitle">MemeMania<span>©</span></div>
         <div class="footer-content">
             <img src="images/pepe.svg" alt="">
-            <p>All your meme are belong to us.</p>
+            <p data-trans="footerTxt">All your meme are belong to us.</p>
         </div>
     </footer>
 
     <script src="js/services/util-service.js"></script>
     <script src="js/services/storage-service.js"></script>
+    <script src="js/services/translate-service.js"></script>
     <script src="js/services/meme-service.js"></script>
     <script src="js/controllers/meme-controller.js"></script>
     <script src="js/controllers/saved-memes-controller.js"></script>

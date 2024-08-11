@@ -25,7 +25,7 @@ function addMouseListeners() {
     gElCanvas.addEventListener('mousedown', onDown)
     gElCanvas.addEventListener('mousemove', onMove)
     gElCanvas.addEventListener('mouseup', onUp)
-    gElCanvas.addEventListener('mouseleave', onUp)
+    document.body.addEventListener('mouseup', onUp)
     // document.addEventListener('contextmenu', function(event) {
     //     event.preventDefault();
     // })

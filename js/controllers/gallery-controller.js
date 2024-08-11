@@ -89,7 +89,7 @@ function onSearchByKeyword(keyword) {
 
 function updateMemeSearch(keyword) {
     const elMemeSearch = document.querySelector('.meme-search-input')
-    elMemeSearch.value = keyword
+    elMemeSearch.value = getTrans(keyword)
 }
 
 function onSetFilter(keyword) {

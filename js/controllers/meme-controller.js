@@ -6,8 +6,7 @@ let gElCanvas
 let gCtx
 let gDragOffset = null
 
-
-function renderMeme() {
+function renderMeme(useOnLoad = true) {
     const meme = getMeme()
     const { selectedImgId, lines } = meme
     const { url: imgSrc } = getImdById(selectedImgId)
@@ -15,12 +14,18 @@ function renderMeme() {
     const elImg = new Image()
     elImg.src = imgSrc
 
-    elImg.onload = () => {
+    const renderProcess = () => {
         renderImg(elImg)
         if (!lines.length) return
         
         renderLines(lines)
         updateEditor()
+    }
+
+    if (useOnLoad) {
+        elImg.onload = renderProcess
+    } else {
+        renderProcess()
     }
 }
 
@@ -28,25 +33,6 @@ function renderImg(elImg) {
     gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
 }
-
-// function renderMeme() {
-//     const { selectedImgId, lines } = getMeme()
-//     const { url: imgSrc } = getImdById(selectedImgId)
-    
-//     renderImg(imgSrc)
-//     if (!lines.length) return
-
-//     renderLines(lines)
-//     updateEditor()
-// }
-
-// function renderImg(imgSrc) {
-//     const elImg = new Image()
-//     elImg.src = imgSrc
-
-//     gElCanvas.height = (elImg.naturalHeight / elImg.naturalWidth) * gElCanvas.width
-//     gCtx.drawImage(elImg, 0, 0, gElCanvas.width, gElCanvas.height)
-// }
 
 ///////////////////////////////////////////////////
 
@@ -67,7 +53,7 @@ function renderLines() {
         gCtx.fillText(txt, pos.x, pos.y)
         gCtx.strokeText(txt, pos.x, pos.y)
 
-        if (idx === selectedLineIdx) {
+        if (idx === selectedLineIdx && selectedLineIdx !== null) {
             renderLineFrame(txt, size, pos)
         }
     })
@@ -192,11 +178,10 @@ function onSetFontFamily(font) {
 function onSaveMeme() {
     onClearSelectedLine()
 
-    const dataURL = gElCanvas.toDataURL()
+    const dataURL = gElCanvas.toDataURL('image/jpeg')
     saveMeme(dataURL)
-    
-    showUserMsg('saveMemeMsg')
 
+    showUserMsg('saveMemeMsg')
 }
 
 function onDownloadMeme(elLink) {
@@ -210,7 +195,8 @@ function onDownloadMeme(elLink) {
 
 function onClearSelectedLine() {
     clearSelectedLine()
-    renderMeme()
+    // Render meme without onload
+    renderMeme(false)
 }
 
 function onShareOnFacebook() {

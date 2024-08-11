@@ -2,6 +2,7 @@
 
 const SAVED_MEMES_KEY = 'memesDB'
 const KEYWORDS_SEARCH_KEY = 'keywordsDB'
+const IMGS_KEY = 'imgsDB'
 
 let gMeme
 let gSavedMemes = loadFromStorage(SAVED_MEMES_KEY) || []
@@ -10,32 +11,7 @@ let gSavedMemes = loadFromStorage(SAVED_MEMES_KEY) || []
 let gKeywordFilter = null
 
 let gImgId = 1
-let gImgs = [
-    { id: gImgId++, url: 'images/1.jpg', keywords: ['funny', 'politics'] },
-    { id: gImgId++, url: 'images/2.jpg', keywords: ['cute', 'dog', 'smile'] },
-    { id: gImgId++, url: 'images/3.jpg', keywords: ['cute', 'baby', 'dog', 'animal'] },
-    { id: gImgId++, url: 'images/4.jpg', keywords: ['cute', 'cat', 'animal'] },
-    { id: gImgId++, url: 'images/5.jpg', keywords: ['funny', 'baby', 'smile'] },
-    { id: gImgId++, url: 'images/6.jpg', keywords: ['funny', 'baby'] },
-    { id: gImgId++, url: 'images/7.jpg', keywords: ['funny', 'baby'] },
-    { id: gImgId++, url: 'images/8.jpg', keywords: ['funny'] },
-    { id: gImgId++, url: 'images/9.jpg', keywords: ['smile', 'funny'] },
-    { id: gImgId++, url: 'images/10.jpg', keywords: ['funny', 'politics'] },
-    { id: gImgId++, url: 'images/11.jpg', keywords: ['funny'] },
-    { id: gImgId++, url: 'images/12.jpg', keywords: ['funny'] },
-    { id: gImgId++, url: 'images/13.jpg', keywords: ['funny', 'smile'] },
-    { id: gImgId++, url: 'images/14.jpg', keywords: ['funny'] },
-    { id: gImgId++, url: 'images/15.jpg', keywords: ['funny', 'politics'] },
-    { id: gImgId++, url: 'images/16.jpg', keywords: ['funny', 'smile'] },
-    { id: gImgId++, url: 'images/17.jpg', keywords: ['politics'] },
-    { id: gImgId++, url: 'images/18.jpg', keywords: ['funny', 'smile'] },
-    { id: gImgId++, url: 'images/19.jpg', keywords: ['cute', 'smile'] },
-    { id: gImgId++, url: 'images/20.jpg', keywords: ['funny'] },
-    { id: gImgId++, url: 'images/21.jpg', keywords: ['men', 'baby'] },
-    { id: gImgId++, url: 'images/22.jpg', keywords: ['politics'] },
-    { id: gImgId++, url: 'images/23.jpg', keywords: ['dog','animal','cute'] },
-    { id: gImgId++, url: 'images/24.jpg', keywords: ['funny'] }
-]
+let gImgs = loadFromStorage(IMGS_KEY) || _initImgs()
 
 let gKeywordsSearchCount
 _createKeywords()
@@ -68,6 +44,39 @@ function _createLine(txt = getTrans('textInput')) {
             y: 30
         }
     }
+}
+
+function _initImgs() {
+    return [
+        { id: makeId(), url: 'images/1.jpg', keywords: ['funny', 'politics'] },
+        { id: makeId(), url: 'images/2.jpg', keywords: ['cute', 'dog', 'smile'] },
+        { id: makeId(), url: 'images/3.jpg', keywords: ['cute', 'baby', 'dog', 'animal'] },
+        { id: makeId(), url: 'images/4.jpg', keywords: ['cute', 'cat', 'animal'] },
+        { id: makeId(), url: 'images/5.jpg', keywords: ['funny', 'baby', 'smile'] },
+        { id: makeId(), url: 'images/6.jpg', keywords: ['funny', 'baby'] },
+        { id: makeId(), url: 'images/7.jpg', keywords: ['funny', 'baby'] },
+        { id: makeId(), url: 'images/8.jpg', keywords: ['funny'] },
+        { id: makeId(), url: 'images/9.jpg', keywords: ['smile', 'funny'] },
+        { id: makeId(), url: 'images/10.jpg', keywords: ['funny', 'politics'] },
+        { id: makeId(), url: 'images/11.jpg', keywords: ['funny'] },
+        { id: makeId(), url: 'images/12.jpg', keywords: ['funny'] },
+        { id: makeId(), url: 'images/13.jpg', keywords: ['funny', 'smile'] },
+        { id: makeId(), url: 'images/14.jpg', keywords: ['funny'] },
+        { id: makeId(), url: 'images/15.jpg', keywords: ['funny', 'politics'] },
+        { id: makeId(), url: 'images/16.jpg', keywords: ['funny', 'smile'] },
+        { id: makeId(), url: 'images/17.jpg', keywords: ['politics'] },
+        { id: makeId(), url: 'images/18.jpg', keywords: ['funny', 'smile'] },
+        { id: makeId(), url: 'images/19.jpg', keywords: ['cute', 'smile'] },
+        { id: makeId(), url: 'images/20.jpg', keywords: ['funny'] },
+        { id: makeId(), url: 'images/21.jpg', keywords: ['men', 'baby'] },
+        { id: makeId(), url: 'images/22.jpg', keywords: ['politics'] },
+        { id: makeId(), url: 'images/23.jpg', keywords: ['dog','animal','cute'] },
+        { id: makeId(), url: 'images/24.jpg', keywords: ['funny'] }
+    ]
+}
+
+function _saveImgs() {
+    saveToStorage(IMGS_KEY, gImgs)
 }
 
 function _createKeywords() {
@@ -287,11 +296,13 @@ function setFilter(keyword) {
 function addImg(imgSrc) {
     const newImg = _createImg(imgSrc)
     gImgs.unshift(newImg)
+
+    _saveImgs()
 }
 
 function _createImg(url) {
     return {
-        id: gImgId++,
+        id: makeId(),
         url,
         keywords: []
     }

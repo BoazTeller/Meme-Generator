@@ -8,7 +8,9 @@ let gDragOffset = null
 
 
 function renderMeme() {
-    const { selectedImgId, lines } = getMeme()
+    const meme = getMeme()
+    const { selectedImgId, lines } = meme
+    console.log(meme)
     const { url: imgSrc } = getImdById(selectedImgId)
 
     const elImg = new Image()

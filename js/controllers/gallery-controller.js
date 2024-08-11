@@ -2,10 +2,11 @@
 
 function renderGallery() {
     const imgs = getImgs()
-    const shuffledImgs = shuffleItems(imgs)
+    const shuffledImgs = shuffleItems(imgs.slice())
+    console.log(shuffledImgs)
     const strHTMLs = shuffledImgs.map(
         ({ id, url }) => 
-            `<img id="${id}" onclick="onImgSelect(${id})" src="${url}">`
+            `<img id="${id}" onclick="onImgSelect('${id}')" src="${url}">`
     ).join('')
 
     const elGallery = document.querySelector('.meme-gallery')

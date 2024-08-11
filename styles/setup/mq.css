@@ -96,13 +96,19 @@
 
     .meme-gallery {
         gap: 1em;
-        height: 100dvh;
+        height: calc(100dvh + 100px);
 
         padding-inline: 1.5vw;
     }
 
     .main-footer {
         display: none;
+    }
+
+    
+    body {
+        height: unset;
+        min-height: unset;
     }
 }
 

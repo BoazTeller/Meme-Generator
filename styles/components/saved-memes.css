@@ -92,3 +92,8 @@
     opacity: 0.9;
     /* background-color: rgba(0, 0, 0, 0.5);  */
 }
+
+.saved-memes-section .saved-memes-info {
+    display: flex;
+    justify-content: center;
+}

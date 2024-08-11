@@ -121,18 +121,15 @@ function onToggleMenu() {
 }
 
 window.addEventListener('resize', function() {
-    const memeGallery = document.querySelector('.meme-gallery');
-    if (window.innerWidth < 1080 && window.getComputedStyle(memeGallery).display === 'grid') {
-        document.body.style.overflow = 'hidden';
+    const memeGallery = document.querySelector('.meme-gallery')
+    const editor = document.querySelector('.meme-editor-container')
+    const saved = document.querySelector('.saved-memes-section')
+
+    if (window.innerWidth < 1080 && 
+        editor.classList.contains('hidden') && 
+        saved.classList.contains('hidden')) {
+        document.body.style.overflowY = 'hidden'
     } else {
-        document.body.style.overflow = ''
+        document.body.style.overflowY = ''
     }
 })
-
-// Initial check in case the page loads below 800px width
-if (window.innerWidth < 1080) {
-    const memeGallery = document.querySelector('.meme-gallery');
-    if (memeGallery && window.getComputedStyle(memeGallery).display === 'grid') {
-        document.body.style.overflow = 'hidden';
-    }
-}

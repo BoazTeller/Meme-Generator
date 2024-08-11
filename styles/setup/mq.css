@@ -70,8 +70,10 @@
     }
 
     .meme-gallery {
-        padding-inline: 1.5vw;
         gap: 1em;
+        height: 100dvh;
+
+        padding-inline: 1.5vw;
     }
 
     .main-footer {

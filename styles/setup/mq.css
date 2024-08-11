@@ -1,5 +1,4 @@
-@media (max-width: 550px) {
-    /* reserved for hamburger menu */
+/* @media (max-width: 550px) {
     .main-header {
         position: relative;
     }
@@ -17,14 +16,13 @@
 
     .main-nav li {
         display: flex;
-        /* flex-direction: column; */
         justify-content: center;
     }
 
     .main-header .lang-select {
         display: none;
     }
-}
+} */
 
 @media (max-width: 680px) {
     .main-nav {

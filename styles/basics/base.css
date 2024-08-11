@@ -23,6 +23,10 @@ body {
   padding: 0;
 }
 
+body.rtl {
+  direction: rtl;
+}
+
 img {
     display: block;
     max-width: 100%;

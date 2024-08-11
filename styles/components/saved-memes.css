@@ -22,7 +22,7 @@
     font-size: 18px;
     color: #fefefe;
     font-weight: 300;
-    font-family: poppins-light;
+    font-family: poppins-light, sans-serif;
     text-align: center;
 
     transition: box-shadow 350ms ease-in;

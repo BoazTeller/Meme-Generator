@@ -104,44 +104,60 @@ function renderKeywords() {
         Object.entries(keywords)
             .slice(0, 6)
     )
-    const minKeywordSize = 6
 
-    let strHTMLs = ''
+    let strKeywordsHTMLs = ''
+    let strDatalistHTMLs = ''
+    
     for (const keyword in slicedKeywords) {
+        const transKeyword = getTrans(keyword)
         let keywordSize = slicedKeywords[keyword]
-        // if (keywordSize < minKeywordSize) keywordSize = minKeywordSize
 
-        strHTMLs += `
-            <li class="keyword" 
-                style="font-size: ${keywordSize}px" 
-                onclick=onSearchByKeyword('${keyword}')>
-                ${keyword}
-            </li>
-        `
+        strKeywordsHTMLs += `<li class="keyword" 
+                                 data-trans="${keyword}"
+                                 style="font-size: ${keywordSize}px" 
+                                 onclick=onSearchByKeyword('${keyword}')>
+                                 ${transKeyword}
+                            </li>`
+
+        strDatalistHTMLs += `<option value="${transKeyword}" 
+                                     data-trans="${keyword}">
+                             </option>`
     }
 
     const elKeywordsList = document.querySelector('.keywords-search-list')
-    elKeywordsList.innerHTML = strHTMLs
+    const elKeywordsDataList = document.getElementById('meme-keywords')
+    elKeywordsList.innerHTML = strKeywordsHTMLs
+    elKeywordsDataList.innerHTML = strDatalistHTMLs
 }
 
+// Refactored to be included with renderKeywords() and translate service
 function initKeywordsDataList() {
-    const keywords = getKeywords()
-    const slicedKeywords = Object.entries(keywords).slice(0, 6)
+    // const keywords = getKeywords()
+    // const slicedKeywords = Object.entries(keywords).slice(0, 6)
 
-    let strHTMLs = ''
-    for (const [keyword] of slicedKeywords) {
-        const capitalizedKeyword = capitalizeFirstLetter(keyword)
-        strHTMLs += `<option value="${capitalizedKeyword}"></option>`
-    }
+    // let strHTMLs = ''
+    // for (const [keyword] of slicedKeywords) {
+    //     const capitalizedKeyword = capitalizeFirstLetter(keyword)
+    //     strHTMLs += `<option value="${capitalizedKeyword}"></option>`
+    // }
 
-    const keywordsDataList = document.getElementById('meme-keywords')
-    keywordsDataList.innerHTML = strHTMLs
+    // const keywordsDataList = document.getElementById('meme-keywords')
+    // keywordsDataList.innerHTML = strHTMLs
 }
 
 function onClearSearch() {
     onSetFilter('')
     updateMemeSearch('')
     renderGallery()
+}
+
+function onSetLang(lang) {
+    const currLang = getCurrLang()
+    if (lang === currLang) return
+
+    setLang(lang)
+    doTrans()
+    // renderKeywords()
 }
 
 ///////////////////////////////////////

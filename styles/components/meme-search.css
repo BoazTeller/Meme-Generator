@@ -1,5 +1,5 @@
 .meme-search > * {
-    font-family: poppins-light;
+    font-family: poppins-light, sans-serif;
 }
 
 .meme-search {    
@@ -67,6 +67,16 @@
     filter: drop-shadow(0px 3px 3.5px rgba(0,0,0,0.15));
 }
 
+body.rtl .meme-search .btn-clear-search {
+    right: unset;
+    left: 13%;
+}
+
+body.rtl .meme-search .fa-solid.fa-magnifying-glass {
+    right: unset;
+    left: 6%;
+}
+
 .meme-search .fa.fa.delete-left {
     padding-top: 0.15em;
     padding-right: 0.3em;
@@ -130,3 +140,4 @@
     filter: drop-shadow(0px 5px 5px rgba(0,0,0,0.25)); 
     box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
 }
+

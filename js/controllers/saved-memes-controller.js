@@ -38,6 +38,7 @@ function renderSavedMemes() {
             </div>`
     })
 
+    elSavedH2.classList.remove('hidden')
     elSavedMemes.style.display = 'grid'
     elSavedMemes.innerHTML = strHTMLs
 }

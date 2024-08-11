@@ -16,7 +16,9 @@ function addListeners() {
     addMouseListeners()
     addColorPickerListeners()
     addTouchListeners()
-    // addResizeListeners()
+
+    window.addEventListener('resize', adjustBodyOverflow)
+    document.addEventListener('DOMContentLoaded', adjustBodyOverflow)
 }
 
 function addMouseListeners() {
@@ -120,8 +122,7 @@ function onToggleMenu() {
     document.body.classList.toggle('menu-open')
 }
 
-window.addEventListener('resize', function() {
-    const memeGallery = document.querySelector('.meme-gallery')
+function adjustBodyOverflow() {
     const editor = document.querySelector('.meme-editor-container')
     const saved = document.querySelector('.saved-memes-section')
 
@@ -132,4 +133,4 @@ window.addEventListener('resize', function() {
     } else {
         document.body.style.overflowY = ''
     }
-})
+}

@@ -4,7 +4,9 @@
     grid-auto-flow: row;
     gap: 1.875em;
     
-    height: calc(100vh - 4.5625em - 2em);
+    /* height: calc(100vh - 4.5625em - 2em); */
+    height: calc(100dvh - 13em);
+
     max-width: 77.6875em;
     width: 100%; 
     overflow-y: auto;

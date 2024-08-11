@@ -67,5 +67,5 @@ function onDownloadSavedMeme(elLink, memeId) {
     const dataURL = savedMeme.dataURL
     elLink.href =  dataURL
 
-    showUserMsg('saveMemeMsg')
+    showUserMsg('downloadMemeMsg')
 }

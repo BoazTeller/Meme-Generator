@@ -37,13 +37,6 @@ function addTouchListeners() {
     gElCanvas.addEventListener('touchend', onUp)
 }
 
-function addResizeListeners() {
-    // window.addEventListener('resize', () => {
-    //     resizeCanvas()
-    //     renderMeme()
-    // })
-}
-
 // Function to trigger color input click on button click
 function addColorPickerListeners() {
     const colorInputs = document.querySelectorAll('button input[type=color]') 

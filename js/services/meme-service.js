@@ -96,7 +96,7 @@ function _generateKeywords() {
         
         keywords.forEach((keyword) => {
             if (!acc[keyword]) {
-                acc[keyword] = getRandomIntInclusive(10, 30)
+                acc[keyword] = getRandomIntInclusive(6, 24)
             }
         })
 

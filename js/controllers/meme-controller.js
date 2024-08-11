@@ -274,7 +274,7 @@ function showUserMsg(msgKey) {
     elUserMsg.classList.add('show')
     setTimeout(() => {
         elUserMsg.classList.remove('show')
-    }, 3000)
+    }, 1500)
 }
 
 //////////////////////////////////////////////

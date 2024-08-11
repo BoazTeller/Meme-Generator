@@ -123,6 +123,8 @@ function onDeleteLine() {
     clearTextInput()
     updateTextInput()
     renderMeme()
+
+    showUserMsg('deleteLineMsg')
 }
 
 function onUpdateFontSize(action) {
@@ -189,8 +191,12 @@ function onSetFontFamily(font) {
 
 function onSaveMeme() {
     onClearSelectedLine()
+
     const dataURL = gElCanvas.toDataURL()
     saveMeme(dataURL)
+    
+    showUserMsg('saveMemeMsg')
+
 }
 
 function onDownloadMeme(elLink) {
@@ -198,6 +204,8 @@ function onDownloadMeme(elLink) {
 
     const dataURL = gElCanvas.toDataURL()
     elLink.href = dataURL
+
+    showUserMsg('downloadMemeMsg')
 }
 
 function onClearSelectedLine() {
@@ -256,6 +264,17 @@ function updateEditor() {
     const strokeColorPicker = document.querySelector('.stroke-btn')
     strokeColorPicker.style.boxShadow = `0px 0px 5px 3px ${strokeStyle}, 
                                          inset 0px 0px 5px 3px ${strokeStyle}`
+}
+
+function showUserMsg(msgKey) {
+    const elUserMsg = document.querySelector('.user-msg')
+    const transMsg = getTrans(msgKey)
+    elUserMsg.textContent = transMsg
+    
+    elUserMsg.classList.add('show')
+    setTimeout(() => {
+        elUserMsg.classList.remove('show')
+    }, 3000)
 }
 
 //////////////////////////////////////////////

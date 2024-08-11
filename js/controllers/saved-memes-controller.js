@@ -56,6 +56,8 @@ function onDeleteSavedMeme(memeId) {
     deleteSavedMeme(memeId)
 
     renderSavedMemes()
+
+    showUserMsg('deleteMemeMsg')
 }
 
 function onDownloadSavedMeme(elLink, memeId) {
@@ -64,4 +66,6 @@ function onDownloadSavedMeme(elLink, memeId) {
 
     const dataURL = savedMeme.dataURL
     elLink.href =  dataURL
+
+    showUserMsg('saveMemeMsg')
 }

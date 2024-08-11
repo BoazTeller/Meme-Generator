@@ -76,6 +76,22 @@ const gTrans = {
 		en: 'Enter text', 
 		he: 'הזן טקסט' 
 	},
+	deleteLineMsg: {
+		en: 'Line deleted',
+		he: 'שורה נמחקה',
+	},
+	saveMemeMsg: {
+		en: 'Meme Saved',
+		he: 'המימ נשמר בהצלחה',
+	},
+	downloadMemeMsg: {
+		en: 'Meme downloaded',
+		he: 'ההורדה בוצעה',
+	},
+	deleteMemeMsg: {
+		en: 'Meme deleted',
+		he: 'המחיקה בוצעה',
+	},
 	
 	/// * Saved memes page * ///
 	savedSubTitle: {

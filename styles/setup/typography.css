@@ -20,17 +20,18 @@
 }
 
 /* Various meme editor fonts through Google Fonts CDN */
-.impact { font-family: 'Impact', sans-serif; }
-.comic-sans { font-family: 'Comic Sans MS', cursive, sans-serif; }
-.bebas-neue { font-family: 'Bebas Neue', sans-serif; }
-.lobster { font-family: 'Lobster', cursive; }
-.anton { font-family: 'Anton', sans-serif; }
-.oswald { font-family: 'Oswald', sans-serif; }
-.roboto { font-family: 'Roboto', sans-serif; }
-.montserrat { font-family: 'Montserrat', sans-serif; }
-.fjalla-one { font-family: 'Fjalla One', sans-serif; }
-.raleway { font-family: 'Raleway', sans-serif; }
+@import url('https://fonts.googleapis.com/css2?family=Poppins&family=Impact&family=Arial+Black&family=Comic+Sans+MS&family=Courier+New&family=Helvetica&family=Roboto&family=Times+New+Roman&family=Verdana&family=Futura&display=swap');
 
+.impact { font-family: 'Impact', sans-serif; }
+.arial-black { font-family: 'Arial Black', sans-serif; }
+.comic-sans-ms { font-family: 'Comic Sans MS', cursive; }
+.courier-new { font-family: 'Courier New', monospace; }
+.helvetica { font-family: 'Helvetica', sans-serif; }
+.roboto { font-family: 'Roboto', sans-serif; }
+.times-new-roman { font-family: 'Times New Roman', serif; }
+.verdana { font-family: 'Verdana', sans-serif; }
+.futura { font-family: 'Futura', sans-serif; }
+.georgia { font-family: 'Georgia', serif; }
 
 /* Font Awesome */
 @font-face {
